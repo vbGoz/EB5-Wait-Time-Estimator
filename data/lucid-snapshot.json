@@ -1,0 +1,240 @@
+{
+  "updatedAt": "2026-09-16",
+  "generatedAt": "2026-09-16T20:26:55.086Z",
+  "sources": [
+    {
+      "name": "EB-5 Timing page",
+      "url": "https://blog.lucidtext.com/eb-5-timing/",
+      "fetched": "2026-09-16",
+      "note": "Links to EB5-Backlog-Analysis.xlsx (Dropbox)",
+      "lastStatus": "200 OK"
+    },
+    {
+      "name": "March 5 2026 Set-Aside Backlog Update",
+      "url": "https://blog.lucidtext.com/2026/03/05/eb-5-set-aside-visa-backlog-and-outlook-update-as-of-march-2026-set-aside-backlog-size-unreserved-visa-availability-infrastructure-visa-bulletin-outlook/",
+      "fetched": "2026-09-16",
+      "lastStatus": "200 OK"
+    },
+    {
+      "name": "March 6 2026 Infrastructure Revision",
+      "url": "https://blog.lucidtext.com/2026/03/06/infrastructure-revision/",
+      "fetched": "2026-09-16",
+      "lastStatus": "200 OK"
+    },
+    {
+      "name": "Sept 9 2026 FY26 Q3 Processing Data",
+      "url": "https://blog.lucidtext.com/2026/09/09/sluggish-volumes-and-rising-denial-rates-continue-in-fy2026-q3-processing-data/",
+      "fetched": "2026-09-16",
+      "lastStatus": "200 OK"
+    },
+    {
+      "name": "Oct 2025 I-485 report + Dec 2025 Visa Bulletin",
+      "url": "https://blog.lucidtext.com/2025/11/19/october-2025-i-485-report-and-december-2025-visa-bulletin/",
+      "fetched": "2026-09-16",
+      "lastStatus": "200 OK"
+    }
+  ],
+  "visaBulletin": {
+    "asOf": "2026-09-16",
+    "unreserved": {
+      "china": "2016-07-14",
+      "india": "2021-07-01",
+      "row": "Current",
+      "note": "China FAD Jul 14 2016 (Dec 2025 VB), India FAD Jul 1 2021 (Jan 2026 VB)"
+    },
+    "rural": {
+      "row": "Current",
+      "china": "Current",
+      "india": "Current",
+      "note": "No set-aside cutoff as of Sept 2026; Lazicki expects Rural to retrogress soon due to qualified volume vs DOS lag"
+    },
+    "hua": {
+      "row": "Current",
+      "china": "Current",
+      "india": "Current",
+      "note": "Current but 6.9x ROW excess set-aside-only; Lazicki surprised if HUA gets dates in FY26"
+    },
+    "infra": {
+      "row": "Current",
+      "china": "Current",
+      "india": "Current",
+      "note": "Current but >400 investors recruited by end 2025 per Mar 6 revision; supply only 400 first yr / 200 thereafter"
+    },
+    "datesForFiling": {
+      "note": "When Current, concurrent I-485/I-765 filing allowed → EAD possible"
+    }
+  },
+  "pipeline": {
+    "note": "Apr 2022-Jun 2026 receipts 19,780 per Sept 9 post; estimated pending visa applicants with family (2x multiplier)",
+    "totalPetitions": 19780,
+    "byCountry": {
+      "china": 9195,
+      "india": 5279,
+      "row": 5306,
+      "chinaPct": 0.46,
+      "indiaPct": 0.27,
+      "rowPct": 0.27
+    },
+    "byCategoryPct": {
+      "rural": 0.48,
+      "hua": 0.45,
+      "infra": 0.01,
+      "unreserved": 0.06
+    },
+    "estimatedVisas": {
+      "rural": 15000,
+      "hua": 15000,
+      "infra": 1000,
+      "setAsideTotal": 31000,
+      "unreservedPipeline": 20000,
+      "grandTotal": 51000
+    },
+    "assumption": "2 visas per I-526/I-526E after denials/family; see Mar 5 post Summary2 tab"
+  },
+  "supply": {
+    "annualTotal": 10000,
+    "note": "Typical EB-5 10k/yr; RIA set-aside 32% (20% Rural, 10% HUA, 2% Infra)",
+    "rural": {
+      "typical": 3200,
+      "fy26": 4000,
+      "perCountryCap": 227,
+      "rowEffective": 2746
+    },
+    "hua": {
+      "typical": 1800,
+      "perCountryCap": 128,
+      "rowEffective": 1544
+    },
+    "infra": {
+      "firstYear": 400,
+      "typical": 200,
+      "perCountryCapFirstYear": 28,
+      "perCountryCapTypical": 14,
+      "rowEffectiveFirstYear": 344,
+      "rowEffectiveTypical": 172
+    },
+    "unreserved": {
+      "typical": 6800,
+      "perCountryCap": 483,
+      "rowEffective": 5834
+    },
+    "totalPerCountryCap": 700
+  },
+  "processing": {
+    "asOf": "FY2026 Q3 (Apr-Jun 2026) All Forms report",
+    "i526e": {
+      "medianMonths": 13.6,
+      "pending": 11192,
+      "approvedQ3": 687,
+      "deniedQ3": 217,
+      "denialRate": 0.24,
+      "note": "Q2 median 11.7mo (770 approved); total IPO ~1930 decisions Q3 vs 4060 FY24Q2"
+    },
+    "i526": {
+      "medianMonthsStandalone": 32.3,
+      "medianMonthsPreRIA": 99.2,
+      "denialRateStandalone": 0.69,
+      "denialRatePreRIA": 0.82
+    },
+    "i829": {
+      "medianMonths": 12.8,
+      "denialRate": 0.092
+    },
+    "i956f": {
+      "medianMonths": 5.4,
+      "denialRate": 0.268,
+      "deniedQ3": 22
+    },
+    "i485": {
+      "wscEbDenialRate": 0.31,
+      "wscEbApprovedQ3": 770,
+      "wscEbDeniedQ3": 340,
+      "dosLag": "Johannesburg Aug 2023 DQ still scheduling Aug 2026; I-485 EB-5 use 405 Oct25/May26, 105 Jun26, 152 Jul26"
+    },
+    "notFIFO": "I-526E processing order not strictly FIFO; see https://blog.lucidtext.com/wp-content/uploads/2026/02/processing-trend.jpg"
+  },
+  "i485Inventory": {
+    "asOf": "2026-08-05",
+    "ruralPending": 9200,
+    "huaPending": 9100,
+    "infraPending": 165,
+    "note": "Visual estimate from Sept 9 stacked chart; precise requires USCIS Pending EB Apps"
+  },
+  "projections": {
+    "method": "Lazicki backlog model: compare pipeline visas vs annual category visas; per-country 7.1% cap when retrogressed",
+    "setAsideOnly": {
+      "note": "If every investor must take set-aside visa of same category",
+      "rural": {
+        "row": "6+ yr HUA-like, slightly less dire",
+        "india": "multi-decade",
+        "china": "multi-deque"
+      },
+      "hua": {
+        "row": "6.9x excess even if ROW gets all HUA visas → 6+ yr",
+        "india": "49x excess → multi-deque",
+        "china": "102x excess → multi-deque"
+      },
+      "infra": {
+        "row": "0-0.5yr if in first 400, else 10x quickly",
+        "india": "0 to multi-deque depending on flurry sort",
+        "china": "0 to multi-deque depending on flurry sort"
+      }
+    },
+    "withUnreservedOverflow": {
+      "note": "If set-aside investors can claim Unreserved in priority-date/country order (DOS consular process exists, USCIS AOS not yet)",
+      "clearing": "2033 (~7yr from 2026) for all 2026 priority dates per Lazicki optimistic model (low confidence)",
+      "grandTotalYearsNoCaps": 5.1,
+      "perCountryTotalYears": "~7-8yr for China/India regardless of category; ROW slightly better",
+      "market3to5yr": "vanishingly improbable for India/China Rural/HUA even with overflow"
+    },
+    "caveats": [
+      "Excel Summary2/Infra tabs not OCR'd, formulas image-only",
+      "FY26 visa limits unpublished (DOS silence May 2025), 400/200 Infra inferred",
+      "2.0x family multiplier vs 2.8 swings years significantly",
+      "ROW Unreserved allocation 0/30/100% swings 4yr vs 38yr",
+      "Visa Bulletin Current = few qualified (~687/Q3) + slow DOS, not no backlog"
+    ]
+  },
+  "lastVerified": "2026-09-16",
+  "attribution": "Data synthesis from Suzanne Lazicki, Lucid Professional Writing, blog.lucidtext.com. Not legal advice. Confirm with counsel and official DOS/USCIS sources.",
+  "lastSync": {
+    "date": "2026-09-16",
+    "checks": [
+      {
+        "label": "RSS feed",
+        "url": "https://blog.lucidtext.com/feed/",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "label": "EB-5 Timing",
+        "url": "https://blog.lucidtext.com/eb-5-timing/",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "label": "Backlog Excel",
+        "url": "https://www.dropbox.com/scl/fi/xkbkaox1hgepg6nn6v3l9/EB5-Backlog-Analysis.xlsx?rlkey=iwnaj84r7apd0matmr0vagkq2&dl=0",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "label": "Visa Bulletin index",
+        "url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html",
+        "ok": false,
+        "status": 403
+      },
+      {
+        "label": "USCIS data",
+        "url": "https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data",
+        "ok": true,
+        "status": 200
+      }
+    ],
+    "feed": {
+      "items": 10,
+      "latestTitle": "",
+      "latestDate": "Wed, 16 Sep 2026 19:16:44 +0000"
+    }
+  }
+}

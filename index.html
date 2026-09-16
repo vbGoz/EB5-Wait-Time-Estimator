@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Rural EB-5 Investment Search — Living Research Hub</title>
+<meta name="description" content="Living diligence tracker for rural EB-5 projects. Comparison, deployment timing, lien priority, and immigration protection.">
+<link rel="stylesheet" href="css/astryx.css">
+<style>
+  :root{
+    --bg:#edeef0;
+    --surface:#ffffff;
+    --surface-2:#f6f7f8;
+    --line:#d8dbdf;
+    --line-2:#e8eaed;
+    --text:#101828;
+    --text-2:#354052;
+    --muted:#667085;
+    --muted-2:#98a2b3;
+    --accent:#0e6b62;
+    --accent-2:#0f766e;
+    --accent-soft:#e6f4f2;
+    --warn-bg:#fef3c7;
+    --warn-text:#92400e;
+    --warn-line:#fde68a;
+    --good-bg:#dcfce7;
+    --good-text:#065f46;
+    --good-line:#86efac;
+    --danger-bg:#fee2e2;
+    --danger-text:#991b1b;
+    --ink:#0f1e2e;
+    --ink-2:#162d4a;
+    --radius:10px;
+    --radius-lg:14px;
+    --shadow:0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+    --shadow-md:0 4px 12px rgba(16,24,40,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--ink);text-decoration:underline}
+  /* top utility */
+  .utility{
+    background:var(--ink);
+    color:#cbd5e1;
+    font-size:12.5px;
+    padding:8px 5vw;
+    display:flex;
+    gap:16px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .utility b{color:#fff;font-weight:600}
+  .utility .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;opacity:.85}
+  .utility a{color:#93c5fd}
+  /* header */
+  header.site{
+    background:linear-gradient(180deg,#0f1e2e 0%,#142a42 100%);
+    color:white;
+    padding:28px 5vw 22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .head-grid{display:flex;gap:24px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .head-main{max-width:760px}
+  .eyebrow{
+    display:inline-flex;gap:8px;align-items:center;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.14);
+    padding:5px 10px;
+    font-size:11.5px;
+    letter-spacing:.02em;
+    color:#e2e8f0;
+  }
+  .eyebrow span.dot{width:7px;height:7px;background:#22c55e;display:inline-block}
+  h1{margin:12px 0 8px;font-size:30px;line-height:1.15;font-weight:750;letter-spacing:-.02em}
+  .subtitle{margin:0;color:#cbd5e1;font-size:15.5px;max-width:68ch}
+  .head-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-top:6px}
+  .btn{
+    appearance:none;border:1px solid var(--line);background:white;color:var(--text);
+    padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;gap:8px;align-items:center;
+  }
+  .btn:hover{background:var(--surface-2)}
+  .btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+  .btn.primary:hover{background:#0d5e56}
+  .btn.ghost{background:transparent;color:white;border-color:rgba(255,255,255,.28)}
+  .btn.ghost:hover{background:rgba(255,255,255,.08)}
+  .btn.small{padding:6px 10px;font-size:12px}
+  /* nav */
+  nav.tabs{
+    position:sticky;top:0;z-index:20;
+    background:rgba(237,238,240,.92);
+    backdrop-filter:saturate(1.4) blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:0 5vw;
+    display:flex;gap:2px;overflow:auto;scrollbar-width:none;
+  }
+  nav.tabs a{
+    padding:13px 14px 12px;
+    font-size:13px;font-weight:600;color:var(--muted);
+    border-bottom:2px solid transparent;white-space:nowrap;
+  }
+  nav.tabs a.active{color:var(--text);border-bottom-color:var(--accent)}
+  nav.tabs a:hover{color:var(--text)}
+  /* layout */
+  main{padding:18px 5vw 56px;max-width:1600px;margin:0 auto}
+  section{margin-top:26px}
+  section h2{font-size:18px;letter-spacing:-.01em;margin:0 0 6px;font-weight:700}
+  section .desc{margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:80ch}
+  /* stats */
+  .stats{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  }
+  @media(max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{
+    background:var(--surface);border:1px solid var(--line);padding:14px 14px 12px;
+    box-shadow:var(--shadow);
+  }
+  .stat .k{font-size:11px;font-weight:650;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .stat .v{font-size:22px;font-weight:760;margin-top:2px;line-height:1}
+  .stat .s{font-size:12px;color:var(--muted);margin-top:4px}
+  .stat.warn{border-color:var(--warn-line);background:#fffbeb}
+  /* toolbar */
+  .toolbar{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 10px;
+  }
+  .toolbar input[type=search], .toolbar select{
+    padding:9px 11px;border:1px solid var(--line);background:white;font-size:13px;min-width:220px;
+  }
+  .toolbar input[type=search]{min-width:280px;flex:1;max-width:520px}
+  .toolbar label{font-size:12.5px;color:var(--muted);display:flex;gap:6px;align-items:center}
+  .check{width:14px;height:14px}
+  /* cards */
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .card-head{
+    padding:14px 14px 10px;border-bottom:1px solid var(--line-2);
+    display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+  }
+  .card-head h3{margin:0;font-size:15px;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+  .card-head .loc{font-size:12px;color:var(--muted);margin-top:2px}
+  .badge{
+    font-size:11px;font-weight:700;padding:4px 7px;border:1px solid var(--line);white-space:nowrap;
+    background:var(--surface-2);color:var(--text-2);
+  }
+  .badge.good{background:var(--good-bg);color:var(--good-text);border-color:var(--good-line)}
+  .badge.warn{background:var(--warn-bg);color:var(--warn-text);border-color:var(--warn-line)}
+  .badge.rural{background:var(--accent-soft);color:var(--accent);border-color:#b6e0db}
+  .card-body{padding:12px 14px 10px;display:grid;gap:9px;flex:1}
+  .kv{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:12.5px;align-items:start}
+  .kv dt{color:var(--muted);font-weight:600}
+  .kv dd{margin:0;color:var(--text-2)}
+  .card-foot{
+    padding:10px 14px 12px;border-top:1px solid var(--line-2);background:#fcfcfd;
+    display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  }
+  .pill{
+    display:inline-block;padding:3px 7px;border:1px solid var(--line);
+    font-size:11px;font-weight:600;background:var(--surface-2);color:var(--text-2);
+  }
+  .pill.unknown{background:var(--warn-bg);color:var(--warn-text);border-color:var(--warn-line)}
+  .pill.ok{background:var(--good-bg);color:var(--good-text);border-color:var(--good-line)}
+  .q{
+    margin:0;padding:10px 11px;background:#fffbeb;border:1px solid var(--warn-line);font-size:12.5px;color:#7c4d00;line-height:1.4;
+  }
+  .q b{color:#92400e}
+  /* table */
+  .table-wrap{
+    background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);overflow:auto;
+  }
+  table{border-collapse:collapse;width:100%;min-width:1180px;font-size:13px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line-2);text-align:left;vertical-align:top}
+  th{background:#f8fafc;position:sticky;top:0;z-index:2;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  th:first-child,td:first-child{position:sticky;left:0;z-index:1;background:var(--surface);font-weight:650;min-width:220px;max-width:240px}
+  th:first-child{z-index:3;background:#f8fafc}
+  tr:hover td{background:#fcfcfd}
+  tr:hover td:first-child{background:#fcfcfd}
+  td.unknown-cell{color:var(--warn-text);background:#fffbeb}
+  .hl{outline:2px solid var(--warn-line);outline-offset:-2px}
+  /* note */
+  .note{
+    background:white;border:1px solid var(--line);padding:12px 14px;font-size:13px;color:var(--text-2);box-shadow:var(--shadow);
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .note b{color:var(--text)}
+  .note .icon{flex:none;width:18px;height:18px;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:700}
+  /* details */
+  details.panel{
+    background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);padding:0;
+  }
+  details.panel summary{
+    list-style:none;cursor:pointer;padding:13px 14px;font-weight:700;font-size:13.5px;display:flex;gap:10px;align-items:center;justify-content:space-between;
+  }
+  details.panel summary::-webkit-details-marker{display:none}
+  details.panel[open] summary{border-bottom:1px solid var(--line-2)}
+  details.panel .inner{padding:14px}
+  details.panel .inner.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:pre-wrap;word-break:break-word;background:#0f172a;color:#e2e8f0}
+  /* timeline */
+  .timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:18px;display:grid;gap:16px}
+  .tl{position:relative}
+  .tl::before{content:"";position:absolute;left:-25px;top:2px;width:10px;height:10px;background:var(--accent);border:2px solid white;box-shadow:0 0 0 2px var(--accent)}
+  .tl time{font-size:12px;color:var(--muted);font-weight:600}
+  .tl h4{margin:2px 0 4px;font-size:14px}
+  .tl p{margin:0;color:var(--text-2);font-size:13px}
+  /* editor */
+  .editor{width:100%;min-height:260px;border:1px solid var(--line);padding:10px;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#fcfcfd}
+  /* footer */
+  footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+  @media print{
+    nav.tabs, .toolbar, .head-actions, .utility a.btn{display:none!important}
+    header.site{padding:18px}
+    .table-wrap{overflow:visible}
+    table{min-width:auto}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="utility">
+  <div><b>EB-5 Wait-Time Estimator</b> &nbsp;·&nbsp; <span class="mono">EAD + Conditional Green Card — live from blog.lucidtext.com</span></div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <span class="mono">Updated: <span id="updatedAt">2026-09-16</span> · <a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener">EB-5 Timing ↗</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="head-grid">
+    <div class="head-main">
+      <div class="eyebrow"><span class="dot"></span> Live model · blog.lucidtext.com · Suzanne Lazicki</div>
+      <h1>EB-5 Wait-Time Estimator</h1>
+      <p class="subtitle">How long <b>EAD</b> and the <b>conditional 2-yr green card</b> take if you file today — pipeline vs per-country caps. Toggle <b>Unreserved overflow</b> to see set-aside only vs with Unreserved.</p>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="btnPrint">Print / Save PDF</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="estimator">
+    <h2>Wait-time estimator — EAD + Conditional green card</h2>
+    <p class="desc">Projects how long <b>EAD (work permit)</b> and the <b>conditional 2-yr green card</b> take if you file today, using live data from <a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener">blog.lucidtext.com</a> (Suzanne Lazicki) — pipeline vs per-country caps. Toggle <b>Unreserved overflow</b> to see the two futures she models (set-aside only vs with Unreserved). Not legal advice.</p>
+    <div id="estimatorMount" style="min-height:320px"></div>
+    <div class="note" style="margin-top:12px">
+      <div class="icon">↻</div>
+      <div><b>Live snapshot:</b> <code>data/lucid-snapshot.json</code> is synced daily by GitHub Actions (see <a href="https://blog.lucidtext.com/feed/" target="_blank" rel="noopener">Lucid RSS</a>). Fallback embedded data lets the page work offline via <code>file://</code>. Edit assumptions — the “market 3–5yr” claim for India/China Rural/HUA is <i>vanishingly improbable</i> even with overflow per <a href="https://blog.lucidtext.com/2026/03/05/eb-5-set-aside-visa-backlog-and-outlook-update-as-of-march-2026-set-aside-backlog-size-unreserved-visa-availability-infrastructure-visa-bulletin-outlook/" target="_blank" rel="noopener">Mar 5 post</a>.</div>
+    </div>
+  </section>
+</main>
+
+<footer style="max-width:1600px;margin:24px auto 0;padding:18px 5vw;border-top:1px solid var(--line);color:var(--muted);font-size:12px">
+  <div><b>Disclaimer:</b> Not investment, legal, or tax advice. Model from <a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener">blog.lucidtext.com</a> (Suzanne Lazicki). Confirm with counsel.</div>
+</footer>
+
+
+
+<div id="drawer" style="display:none;position:fixed;inset:0;z-index:40">
+  <div id="drawerBg" style="position:absolute;inset:0;background:rgba(15,30,46,.48)"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:min(560px,92vw);background:white;border-left:1px solid var(--line);overflow:auto;box-shadow:var(--shadow-md);padding:18px 18px 28px">
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start">
+      <div><div style="font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700">Project detail</div><h3 id="drawerTitle" style="margin:4px 0 0;font-size:19px"></h3><div id="drawerLoc" style="color:var(--muted);font-size:13px"></div></div>
+      <button class="btn small" id="drawerClose">Close</button>
+    </div>
+    <div id="drawerBody" style="margin-top:14px;display:grid;gap:12px"></div>
+  </div>
+</div>
+
+<script>
+const PROJECTS = [
+  {
+    id:"ctp",
+    name:"Independent Living Cottages / CTP",
+    short:"CTP",
+    location:"Elkin / Sparta / Lake Lure, NC",
+    state:"NC",
+    rural:"Yes, per brochure",
+    investment:"$800K",
+    i956f:"Approved Aug. 7, 2026",
+    structure:"Senior EB-5 loan",
+    security:"Brochure says EB-5 families are first position for repayment; verify docs",
+    offering:"Approx. $32.8M / 75% stack",
+    term:"Needs PPM",
+    escrow:"Needs agreement",
+    filings:"Needs confirmation",
+    construction:"Multiple phases; construction/planning varies by site",
+    jobs:"20–40% cushion claimed by sponsor",
+    refund:"100% return claimed if denial, subject to guarantee terms",
+    completion:"Yes, claimed; verify",
+    fundingDelay:"$40M revolving credit facility claimed",
+    redeployment:"No redeployment planned, per brochure",
+    exit:"USDA financing identified as possible exit",
+    partial:"Needs confirmation",
+    deployment:"UNKNOWN",
+    question:"When does $800K leave escrow and become a JCE loan?",
+    source:"User-provided marketing brochure; sponsor claims require PPM verification",
+    sourceUrl:"",
+    notes:"Primary source is brochure — highest verification burden."
+  },
+  {
+    id:"tih",
+    name:"Texas Infrastructure Holdings",
+    short:"TIH",
+    location:"Uvalde, TX",
+    state:"TX",
+    rural:"Yes + high-unemployment TEA",
+    investment:"$800K",
+    i956f:"Approved June 5, 2026",
+    structure:"Senior EB-5 loan",
+    security:"First-position security reported; verify docs",
+    offering:"Approx. $157.6M target raise",
+    term:"Dec. 31, 2028 + three 1-year extensions",
+    escrow:"Needs agreement",
+    filings:"Needs confirmation",
+    construction:"Under construction",
+    jobs:"Substantial cushion reported",
+    refund:"Needs PPM",
+    completion:"Needs documents",
+    fundingDelay:"Needs documents",
+    redeployment:"Needs PPM",
+    exit:"Refinancing / project financing; verify",
+    partial:"Needs confirmation",
+    deployment:"UNKNOWN",
+    question:"Funding timing + lien/intercreditor terms",
+    source:"Public project materials; verify against PPM",
+    sourceUrl:"",
+    notes:"Confirm intercreditor and what debt, if any, is ahead at funding."
+  },
+  {
+    id:"cormont",
+    name:"Cormont at Deer Valley",
+    short:"Cormont",
+    location:"Deer Valley, UT",
+    state:"UT",
+    rural:"Yes",
+    investment:"$800K",
+    i956f:"Approved Apr. 29, 2026",
+    structure:"Senior-secured; second lien until bridge/seller financing is repaid",
+    security:"Second lien during initial period; verify intercreditor",
+    offering:"Approx. $224.8M target raise",
+    term:"Needs PPM",
+    escrow:"Needs agreement",
+    filings:"Available / project marketed as open",
+    construction:"Under construction",
+    jobs:"Needs economic report",
+    refund:"Needs PPM",
+    completion:"Needs documents",
+    fundingDelay:"Needs documents",
+    redeployment:"Needs PPM",
+    exit:"Needs PPM",
+    partial:"Needs confirmation",
+    deployment:"UNKNOWN",
+    question:"How/when EB-5 moves to first lien",
+    source:"Public project materials; verify against PPM",
+    sourceUrl:"",
+    notes:"Key risk is timing of senior-lien flip — get the payoff schedule."
+  },
+  {
+    id:"shenandoah",
+    name:"Simply Shenandoah",
+    short:"Shenandoah",
+    location:"Shenandoah County, VA",
+    state:"VA",
+    rural:"Yes",
+    investment:"$800K",
+    i956f:"Approved",
+    structure:"Senior loan",
+    security:"First-priority deed of trust reported",
+    offering:"Publicly reported $80M",
+    term:"4-year initial term reported",
+    escrow:"Needs agreement",
+    filings:"Needs confirmation",
+    construction:"Under construction",
+    jobs:"Needs economic report",
+    refund:"Needs PPM",
+    completion:"Needs documents",
+    fundingDelay:"Needs documents",
+    redeployment:"Needs PPM",
+    exit:"Refinancing / completion; verify",
+    partial:"Needs confirmation",
+    deployment:"UNKNOWN",
+    question:"Current availability + escrow release",
+    source:"Public project materials; availability changed over time",
+    sourceUrl:"",
+    notes:"Availability has shifted — reconfirm open status and escrow terms."
+  },
+  {
+    id:"pointe",
+    name:"Hard Rock Pointe Vista",
+    short:"Pointe Vista",
+    location:"Kingston, OK / Lake Texoma",
+    state:"OK",
+    rural:"Yes + high-unemployment TEA (rural + HUA)",
+    investment:"$800K",
+    i956f:"USCIS approved (I-956F)",
+    structure:"Secured senior EB-5 loan",
+    security:"First-priority mortgage on residential property; second-priority on hotel/bay initially; 100% equity pledge",
+    offering:"$200M",
+    term:"5 years",
+    escrow:"Yes",
+    filings:"Now available",
+    construction:"Underway; developer reports $38M+ spent",
+    jobs:"480+ jobs created; 5,700+ expected",
+    refund:"Refund guaranty stated on project page",
+    completion:"Yes, stated",
+    fundingDelay:"Needs documents",
+    redeployment:"Needs PPM",
+    exit:"Needs PPM",
+    partial:"Yes: less than $800K initially, balance committed within set period",
+    deployment:"UNKNOWN",
+    question:"Exact partial-funding, escrow-release and hotel senior-lien mechanics",
+    source:"Official project page",
+    sourceUrl:"https://eb5visainvestments.com/project/hard-rock-pointe-vista/",
+    notes:"Page confirms $800K min, I-956F approval, rural+HUA, 5-yr, escrow, 480+ jobs, partial-investment provision — verify partial schedule and when hotel lien flips to first."
+  }
+];
+
+const CATEGORIES = [
+  ["Location","location"],
+  ["Rural TEA","rural"],
+  ["Investment","investment"],
+  ["I-956F","i956f"],
+  ["Structure","structure"],
+  ["Security / lien","security"],
+  ["EB-5 offering","offering"],
+  ["Term","term"],
+  ["Escrow","escrow"],
+  ["I-526E filings","filings"],
+  ["Construction","construction"],
+  ["Jobs","jobs"],
+  ["I-526E refund protection","refund"],
+  ["Completion guarantee","completion"],
+  ["Funding-delay protection","fundingDelay"],
+  ["Redeployment","redeployment"],
+  ["Exit","exit"],
+  ["Partial initial funding","partial"],
+  ["Deployment timing","deployment"],
+  ["Highest-priority question","question"],
+  ["Source / notes","source"]
+];
+
+const DEPLOY_ROWS = [
+  "Subscription signed",
+  "$800K transferred to escrow",
+  "I-526E filed",
+  "Escrow-release conditions satisfied",
+  "Funds leave escrow",
+  "Funds reach JCE",
+  "EB-5 loan becomes first priority"
+];
+
+const DILIGENCE = [
+  "Exactly what event causes the $800K to leave escrow?",
+  "How many business days from satisfying release conditions to JCE funding?",
+  "Is the money pooled before being advanced?",
+  "What debt is ahead of EB-5 at each stage?",
+  "When exactly does EB-5 become first lien?",
+  "How much EB-5 capital is actually funded vs. subscribed?",
+  "When is the next EB-5 draw?",
+  "Who funds an I-526E refund and what are the conditions?",
+  "What happens if construction or refinancing is delayed?",
+  "Could redeployment occur under the actual documents?"
+];
+
+let LOG = [
+  {date:"2026-09-16", title:"ChatGPT thread → static hub", body:"Carried over 5 rural projects (CTP / TIH / Cormont / Shenandoah / Pointe Vista) and the deployment-timing tracker. Hard Rock Pointe Vista re-verified against official project page: $800K, I-956F approved, rural+HUA TEA, 5-yr term, escrow, 480+ jobs created, partial-investment provision. Next: fill Funding Speed / Escrow trigger, days-to-deployment, and lien-flip mechanics from PPMs.", source:"chatgpt.com/share/6aaace7d-e408-83e9-9658-e2599e42d2ac"},
+  {date:"2026-09-16", title:"Hub created", body:"Built hostable single-file tracker with comparison table, deployment matrix, and diligence checklist. Ready to push to GitHub Pages / Netlify and keep updating.", source:"eb5research/index.html"}
+];
+
+const LS_DILIGENCE = "eb5_diligence_v1";
+const LS_LOG = "eb5_log_v1";
+
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function isUnknown(v){ return /unknown|needs|verify/i.test(String(v||"")); }
+function badgeFor(v){
+  if(/UNKNOWN/i.test(v)) return `<span class="pill unknown">UNKNOWN</span>`;
+  if(/Needs|verify|confirmation|documents/i.test(v)) return `<span class="pill unknown">Needs verification</span>`;
+  if(/Yes|Approved|Available|Now/i.test(v)) return `<span class="pill ok">Confirmed*</span>`;
+  return esc(v);
+}
+function loadStored(){
+  try{ const d=localStorage.getItem(LS_DILIGENCE); if(d) window._dil = JSON.parse(d); }catch{}
+  try{ const l=localStorage.getItem(LS_LOG); if(l) LOG = JSON.parse(l); }catch{}
+}
+function saveDiligence(){ try{ localStorage.setItem(LS_DILIGENCE, JSON.stringify(window._dil||{})); }catch{} }
+function saveLog(){ try{ localStorage.setItem(LS_LOG, JSON.stringify(LOG)); }catch{} }
+
+function renderStats(){
+  const stats = document.getElementById('stats');
+  if(!stats) return;
+  const total = PROJECTS.length;
+  const approved = PROJECTS.filter(p=> /Approved/i.test(p.i956f)).length;
+  const rural = PROJECTS.filter(p=> /Yes/i.test(p.rural)).length;
+  const escrowYes = PROJECTS.filter(p=> p.escrow==="Yes").length;
+  const unknownDeploy = PROJECTS.filter(p=> p.deployment==="UNKNOWN").length;
+  const items = [
+    {k:"Projects tracked", v: total, s:"Rural TEA focus", warn:false},
+    {k:"I-956F approved", v: approved+" / "+total, s:"USCIS project approval", warn:false},
+    {k:"Rural TEA", v: rural+" / "+total, s:"All 5 rural; 2 with HUA add-on", warn:false},
+    {k:"Escrow confirmed", v: escrowYes, s:"Only Pointe Vista confirmed — rest need agreement", warn: escrowYes<total},
+    {k:"Deployment timing", v: unknownDeploy+" UNKNOWN", s:"Gating question for I-526E filing", warn: true}
+  ];
+  stats.innerHTML="";
+  items.forEach(it=>{
+    const d=el('div','stat'+(it.warn?' warn':''), `<div class=k>${it.k}</div><div class=v>${it.v}</div><div class=s>${it.s}</div>`);
+    stats.appendChild(d);
+  });
+}
+
+function filteredProjects(){
+  const qEl = document.getElementById('q');
+  const q = (qEl ? qEl.value : "").toLowerCase();
+  const stEl = document.getElementById('fState');
+  const st = stEl ? stEl.value : "";
+  const vfEl = document.getElementById('fVerify');
+  const vf = vfEl ? vfEl.value : "";
+  return PROJECTS.filter(p=>{
+    if(st && p.state!==st) return false;
+    if(q){
+      const blob = [p.name,p.location,p.rural,p.structure,p.security,p.question,p.source,p.offering,p.jobs].join(" ").toLowerCase();
+      if(!blob.includes(q)) return false;
+    }
+    if(vf==="unknown"){
+      const hasUnknown = CATEGORIES.some(([_,k])=> isUnknown(p[k]));
+      if(!hasUnknown) return false;
+    }
+    if(vf==="confirmed"){
+      // mostly confirmed = escrow yes or term known
+      const unknowns = CATEGORIES.filter(([_,k])=> isUnknown(p[k])).length;
+      if(unknowns>8) return false;
+    }
+    return true;
+  });
+}
+
+function renderCards(){
+  const grid = document.getElementById('projectGrid');
+  if(!grid) return;
+  const onlyUnknownEl = document.getElementById('onlyUnknown');
+  const onlyUnknown = onlyUnknownEl ? onlyUnknownEl.checked : false;
+  const list = filteredProjects();
+  grid.innerHTML="";
+  if(!list.length){
+    grid.innerHTML = `<div style="grid-column:1/-1;background:white;border:1px solid var(--line);padding:22px;text-align:center;color:var(--muted)">No projects match your filters. Clear search or state.</div>`;
+    return;
+  }
+  list.forEach(p=>{
+    const card = el('div','card');
+    const unknowns = CATEGORIES.filter(([_,k])=> isUnknown(p[k])).length;
+    const head = el('div','card-head');
+    head.innerHTML = `<div><h3>${esc(p.name)}</h3><div class=loc>${esc(p.location)} · ${esc(p.state)}</div></div><div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end"><span class="badge rural">${esc(p.rural.includes('+')?'RURAL + HUA':'RURAL')}</span><span class="badge ${/Needs/i.test(p.escrow)?'warn':'good'}">I-956F</span></div>`;
+    const body = el('div','card-body');
+    const rows = [
+      ["I-956F", p.i956f],
+      ["Structure", p.structure],
+      ["Security", p.security],
+      ["Offering", p.offering],
+      ["Term", p.term],
+      ["Jobs", p.jobs],
+      ["Partial", p.partial]
+    ];
+    rows.forEach(([label,val])=>{
+      const kv = el('div','kv');
+      const dt = el('dt',null,label);
+      // need dt/dd structure inside kv div? kv is div; create dl? Simplify: use divs
+      kv.innerHTML = `<dt>${esc(label)}</dt><dd>${esc(val)}${onlyUnknown && isUnknown(val)?' <span class="pill unknown" style="margin-left:6px">?</span>':''}</dd>`;
+      if(onlyUnknown && isUnknown(val)) kv.style.background="#fffbeb";
+      body.appendChild(kv);
+    });
+    // convert kv divs to proper styling - keep as is
+    body.querySelectorAll('.kv').forEach(k=>{ k.style.display="grid"; k.style.gridTemplateColumns="110px 1fr"; k.style.gap="8px"; k.style.fontSize="12.5px"; });
+    const foot = el('div','card-foot');
+    foot.innerHTML = `<div style="display:flex;gap:6px;align-items:center"><span class="pill ${p.deployment==='UNKNOWN'?'unknown':''}">${p.deployment==='UNKNOWN'?'Deployment: UNKNOWN':'Deployment: '+esc(p.deployment)}</span><span style="font-size:11px;color:var(--muted)">${unknowns} fields need verification</span></div><button class="btn small" data-id="${p.id}">View detail →</button>`;
+    card.appendChild(head); card.appendChild(body);
+    const qEl = el('div','q', `<b>Next question →</b> ${esc(p.question)}`);
+    body.appendChild(qEl);
+    card.appendChild(foot);
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('button[data-id]').forEach(b=> b.addEventListener('click', ()=> openDrawer(b.dataset.id)));
+}
+
+function renderComparison(){
+  const wrap = document.getElementById('tableWrap');
+  if(!wrap) return;
+  const qEl2 = document.getElementById('q2');
+  const q = (qEl2 ? qEl2.value : "").toLowerCase();
+  const diffOnlyEl = document.getElementById('diffOnly');
+  const diffOnly = diffOnlyEl ? diffOnlyEl.checked : false;
+  const hlUnknownEl = document.getElementById('hlUnknown');
+  const hlUnknown = hlUnknownEl ? hlUnknownEl.checked : true;
+  // filter categories
+  let rows = CATEGORIES.slice();
+  if(q) rows = rows.filter(([label])=> label.toLowerCase().includes(q) || PROJECTS.some(p=> String(p[CATEGORIES.find(c=>c[0]===label)[1]]||"").toLowerCase().includes(q)));
+  if(diffOnly){
+    rows = rows.filter(([label,key])=>{
+      const vals = PROJECTS.map(p=> String(p[key]||"").trim().toLowerCase());
+      return new Set(vals).size>1;
+    });
+  }
+  let html = `<table><thead><tr><th>Category</th>`+PROJECTS.map(p=> `<th>${esc(p.short)}</th>`).join("")+`</tr></thead><tbody>`;
+  rows.forEach(([label,key])=>{
+    const isDupe = (()=>{ const vals=PROJECTS.map(p=> String(p[key]||"")); return vals.every(v=> v===vals[0]); })();
+    html+= `<tr${isDupe && diffOnly ? ' style="display:none"':''}><td>${esc(label)}</td>`;
+    PROJECTS.forEach(p=>{
+      let v = p[key]||"";
+      if(key==="source"){
+        const link = p.sourceUrl ? ` <a href="${p.sourceUrl}" target="_blank" rel="noopener">↗</a>` : "";
+        v = esc(v)+link+ (p.notes? `<div style="margin-top:6px;color:var(--muted);font-size:11.5px">${esc(p.notes)}</div>`:"");
+        html+= `<td>${v}</td>`;
+      } else if(key==="deployment"){
+        const cls = v==="UNKNOWN" && hlUnknown ? ` class="unknown-cell${v==="UNKNOWN"?" hl":""}"` : "";
+        html+= `<td${cls}>${v==="UNKNOWN"?'<span class="pill unknown">UNKNOWN</span>':esc(v)}</td>`;
+      } else {
+        const unknown = isUnknown(v);
+        const cls = unknown && hlUnknown ? ` class="unknown-cell"` : "";
+        // for pills where appropriate
+        let cell = esc(v);
+        if(unknown && hlUnknown) cell = `<span class="pill unknown">Needs verification</span><div style="margin-top:6px;font-size:12px;color:var(--warn-text)">${esc(v)}</div>`;
+        // small truncation for security field: keep full
+        html+= `<td${cls}>${cell}</td>`;
+      }
+    });
+    html+=`</tr>`;
+  });
+  html+=`</tbody></table>`;
+  wrap.innerHTML = html;
+}
+
+function renderDeploy(){
+  const wrap = document.getElementById('deployWrap');
+  if(!wrap) return;
+  let html = `<table><thead><tr><th>Milestone</th>`+PROJECTS.map(p=> `<th>${esc(p.short)}</th>`).join("")+`<th style="min-width:220px">What to ask</th></tr></thead><tbody>`;
+  DEPLOY_ROWS.forEach(r=>{
+    html+= `<tr><td>${esc(r)}</td>`;
+    PROJECTS.forEach(p=>{
+      // all unknown today
+      html+= `<td class="unknown-cell" style="text-align:center"><span class="pill unknown">?</span></td>`;
+    });
+    const ask = {
+      "Subscription signed":"When is subscription effective vs. funds due?",
+      "$800K transferred to escrow":"Wire instructions, escrow agent, and holding account?",
+      "I-526E filed":"Can you file before full $800K is deployed?",
+      "Escrow-release conditions satisfied":"Exact trigger — filing receipt? approval? admin?",
+      "Funds leave escrow":"Business days to wire; pooled or direct?",
+      "Funds reach JCE":"Evidence of JCE receipt + loan advance notice?",
+      "EB-5 loan becomes first priority":"Recording date + intercreditor payoff?"
+    }[r]||"";
+    html+= `<td style="font-size:12px;color:var(--muted)">${esc(ask)}</td></tr>`;
+  });
+  html+=`</tbody></table>`;
+  wrap.innerHTML = html;
+}
+
+function renderDiligence(){
+  const wrap = document.getElementById('diligenceWrap');
+  if(!wrap) return;
+  loadStored();
+  const state = window._dil || {};
+  let html = `<div class="table-wrap" style="overflow:auto"><table style="min-width:980px"><thead><tr><th style="min-width:360px">Question</th>`+PROJECTS.map(p=> `<th>${esc(p.short)}</th>`).join("")+`</tr></thead><tbody>`;
+  DILIGENCE.forEach((q,i)=>{
+    html+= `<tr><td><span style="font-weight:700">${i+1}.</span> ${esc(q)}</td>`;
+    PROJECTS.forEach(p=>{
+      const key = p.id+"_"+i;
+      const checked = state[key] ? "checked" : "";
+      html+= `<td style="text-align:center"><label style="display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" data-key="${key}" ${checked} class="check"> <span style="font-size:11px;color:var(--muted)">${checked?"confirmed":"pending"}</span></label></td>`;
+    });
+    html+=`</tr>`;
+  });
+  html+=`</tbody></table></div><div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn small" id="btnClearChecks">Clear all checks</button><button class="btn small" id="btnExportChecks">Export checks JSON</button><span style="font-size:12px;color:var(--muted);align-self:center">Checked = you have it in the PPM/escrow docs. Stored locally.</span></div>`;
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('input[data-key]').forEach(cb=>{
+    cb.addEventListener('change', e=>{
+      if(!window._dil) window._dil={};
+      if(e.target.checked) window._dil[e.target.dataset.key]=true; else delete window._dil[e.target.dataset.key];
+      saveDiligence();
+      e.target.nextElementSibling.textContent = e.target.checked ? "confirmed" : "pending";
+    });
+  });
+  document.getElementById('btnClearChecks').onclick = ()=>{ if(confirm("Clear all diligence checks?")){ window._dil={}; saveDiligence(); renderDiligence(); } };
+  document.getElementById('btnExportChecks').onclick = ()=>{
+    const blob = new Blob([JSON.stringify(window._dil||{},null,2)],{type:"application/json"});
+    const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download="eb5-diligence-checks.json"; a.click(); URL.revokeObjectURL(url);
+  };
+}
+
+function renderTimeline(){
+  const el2 = document.getElementById('timeline');
+  if(!el2) return;
+  el2.innerHTML="";
+  LOG.slice().reverse().forEach(entry=>{
+    const div = el('div','tl');
+    div.innerHTML = `<time>${esc(entry.date)}</time><h4>${esc(entry.title)}</h4><p>${esc(entry.body)}</p><div style="margin-top:6px;font-size:11.5px;color:var(--muted)">${esc(entry.source)}</div>`;
+    el2.appendChild(div);
+  });
+}
+
+function openDrawer(id){
+  const p = PROJECTS.find(x=> x.id===id);
+  if(!p) return;
+  document.getElementById('drawerTitle').textContent = p.name;
+  document.getElementById('drawerLoc').textContent = p.location + " · " + p.rural;
+  const body = document.getElementById('drawerBody');
+  body.innerHTML = `
+    <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge rural">${esc(p.rural)}</span><span class="badge ${/Approved/i.test(p.i956f)?'good':''}">${esc(p.i956f)}</span><span class="badge">${esc(p.investment)}</span></div>
+    <div style="display:grid;gap:8px;margin-top:8px">
+      ${[["Structure",p.structure],["Security / lien",p.security],["EB-5 offering",p.offering],["Term",p.term],["Escrow",p.escrow],["I-526E filings",p.filings],["Construction",p.construction],["Jobs",p.jobs],["Refund protection",p.refund],["Completion guarantee",p.completion],["Funding-delay protection",p.fundingDelay],["Redeployment",p.redeployment],["Exit",p.exit],["Partial initial funding",p.partial]].map(([k,v])=> `<div style="display:grid;grid-template-columns:140px 1fr;gap:8px;font-size:13px;border-bottom:1px solid #f0f0f0;padding:7px 0"><div style="color:var(--muted);font-weight:600">${esc(k)}</div><div>${isUnknown(v)?`<span class="pill unknown">Needs verification</span> <span style="font-size:12px;color:var(--warn-text)">${esc(v)}</span>`:esc(v)}</div></div>`).join("")}
+    </div>
+    <div class="q" style="margin-top:10px"><b>Highest-priority diligence question</b><br>${esc(p.question)}</div>
+    <div style="font-size:12.5px;color:var(--muted)"><b style="color:var(--text)">Source:</b> ${p.sourceUrl?`<a href="${p.sourceUrl}" target="_blank" rel="noopener">${esc(p.source)}</a>`:esc(p.source)}<br><b style="color:var(--text)">Notes:</b> ${esc(p.notes)}</div>
+    <div style="display:flex;gap:8px;margin-top:8px"><button class="btn small" onclick="navigator.clipboard.writeText('${esc(p.question).replace(/'/g,"\\'")}'); this.textContent='Copied'">Copy question</button><a class="btn small" href="#diligence" onclick="document.getElementById('drawer').style.display='none'">Open diligence checklist</a></div>
+  `;
+  document.getElementById('drawer').style.display="block";
+  document.body.style.overflow="hidden";
+}
+function closeDrawer(){ document.getElementById('drawer').style.display="none"; document.body.style.overflow=""; }
+
+function initEditor(){
+  const ta = document.getElementById('jsonEditor');
+  if(!ta) return;
+  ta.value = JSON.stringify(PROJECTS, null, 2);
+  document.getElementById('btnCopyJson').onclick = ()=>{ navigator.clipboard.writeText(ta.value); const b=document.getElementById('btnCopyJson'); const t=b.textContent; b.textContent="Copied"; setTimeout(()=> b.textContent=t, 1200); };
+  document.getElementById('btnApplyJson').onclick = ()=>{
+    try{
+      const parsed = JSON.parse(ta.value);
+      if(!Array.isArray(parsed)) throw new Error("JSON must be an array of projects");
+      // basic validation
+      if(parsed.length===0) throw new Error("Array is empty");
+      PROJECTS.length=0; parsed.forEach(p=> PROJECTS.push(p));
+      renderAll();
+      alert("Applied — tables and cards re-rendered. Remember to Export/Download to persist.");
+    }catch(e){ alert("Invalid JSON: "+e.message); }
+  };
+  document.getElementById('btnDownloadHtml').onclick = ()=>{
+    // Create updated HTML file with new PROJECTS embedded
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([ "<!doctype html>\n"+html ], {type:"text/html"});
+    const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download="EB5-Research-Hub.html"; a.click(); URL.revokeObjectURL(url);
+  };
+}
+
+function renderAll(){
+  try{ renderStats(); }catch{}
+  try{ renderCards(); }catch{}
+  try{ renderComparison(); }catch{}
+  try{ renderDeploy(); }catch{}
+  try{ renderDiligence(); }catch{}
+  try{ renderTimeline(); }catch{}
+  const ga=document.getElementById('genAt'); if(ga) ga.textContent = new Date().toISOString().slice(0,10);
+  const ua=document.getElementById('updatedAt'); if(ua) ua.textContent = new Date().toISOString().slice(0,10);
+  // also sync editor if exists
+  const ta=document.getElementById('jsonEditor'); if(ta && document.activeElement!==ta) ta.value = JSON.stringify(PROJECTS,null,2);
+}
+</script>
+<script>
+// Astryx Estimator — inline classic build for file:// compatibility (also available as js/astryx-estimator.js ES module)
+// Embedded fallback mirrors data/lucid-snapshot.json
+const ASTRYX_FALLBACK = {
+  updatedAt: "2026-09-16",
+  visaBulletin: {
+    unreserved: { china: "2016-07-14", india: "2021-07-01", row: "Current" },
+    rural: { row: "Current" }, hua: { row: "Current" }, infra: { row: "Current" }
+  },
+  pipeline: {
+    totalPetitions: 19780,
+    byCountry: { chinaPct: 0.46, indiaPct: 0.27, rowPct: 0.27 },
+    estimatedVisas: { rural: 15000, hua: 15000, infra: 1000, unreservedPipeline: 20000, grandTotal: 51000 }
+  },
+  supply: {
+    rural: { typical: 3200, fy26: 4000, perCountryCap: 227, rowEffective: 2746 },
+    hua: { typical: 1800, perCountryCap: 128, rowEffective: 1544 },
+    infra: { firstYear: 400, typical: 200, perCountryCapFirstYear: 28, perCountryCapTypical: 14, rowEffectiveFirstYear: 344 },
+    unreserved: { typical: 6800, perCountryCap: 483 },
+    totalPerCountryCap: 700, annualTotal: 10000
+  },
+  processing: { i526e: { medianMonths: 13.6, pending: 11192, approvedQ3: 687, denialRate: 0.24 }, i485: { dosLag: "Johannesburg Aug 2023 DQ still scheduling Aug 2026" } },
+  i485Inventory: { ruralPending: 9200, huaPending: 9100, infraPending: 165 },
+  projections: { setAsideOnly: {}, withUnreservedOverflow: { clearing: "2033 (~7yr)" } },
+  sources: [
+    {name:"EB-5 Timing", url:"https://blog.lucidtext.com/eb-5-timing/"},
+    {name:"Mar 5 Backlog", url:"https://blog.lucidtext.com/2026/03/05/eb-5-set-aside-visa-backlog-and-outlook-update-as-of-march-2026-set-aside-backlog-size-unreserved-visa-availability-infrastructure-visa-bulletin-outlook/"},
+    {name:"Infra Rev", url:"https://blog.lucidtext.com/2026/03/06/infrastructure-revision/"},
+    {name:"Q3 Data", url:"https://blog.lucidtext.com/2026/09/09/sluggish-volumes-and-rising-denial-rates-continue-in-fy2026-q3-processing-data/"}
+  ]
+};
+let ASTRYX_SNAP = null;
+let ASTRYX_LAST_FETCH = null;
+async function astryxLoadSnapshot(){
+  try{
+    const r = await fetch('data/lucid-snapshot.json', {cache:'no-store'});
+    if(!r.ok) throw new Error('no snapshot');
+    ASTRYX_SNAP = await r.json();
+    ASTRYX_LAST_FETCH = new Date().toISOString();
+  }catch(e){
+    ASTRYX_SNAP = ASTRYX_FALLBACK;
+  }
+  return ASTRYX_SNAP;
+}
+function astryxYearsFor({country, category, family, withOverflow}){
+  const c = country === 'china' ? 'china' : country === 'india' ? 'india' : 'row';
+  const cat = category;
+  const snap = ASTRYX_SNAP || ASTRYX_FALLBACK;
+  const fam = Math.max(1.5, Math.min(3.0, family||2.0));
+  const p = snap.pipeline.estimatedVisas;
+  const s = snap.supply;
+  const catVisas = cat==='rural'? p.rural : cat==='hua'? p.hua : cat==='infra'? p.infra : p.unreservedPipeline;
+  const countryShare = c==='china'? snap.pipeline.byCountry.chinaPct : c==='india'? snap.pipeline.byCountry.indiaPct : snap.pipeline.byCountry.rowPct;
+  const totalForCountry = (p.rural + p.hua + p.infra) * countryShare + (cat==='unreserved' ? 20000*countryShare : 0);
+  let annualCap;
+  if(withOverflow){
+    annualCap = s.totalPerCountryCap;
+    if(c==='row') annualCap = s.annualTotal * 0.52;
+    const yrs = (totalForCountry * fam/2) / annualCap;
+    return { yrs: Math.max(0.6, yrs), cap: annualCap, pipeline: totalForCountry*fam/2 };
+  } else {
+    if(cat==='rural') annualCap = c==='row'? s.rural.rowEffective : s.rural.perCountryCap;
+    else if(cat==='hua') annualCap = c==='row'? s.hua.rowEffective : s.hua.perCountryCap;
+    else if(cat==='infra') annualCap = c==='row'? s.infra.rowEffectiveFirstYear : s.infra.perCountryCapFirstYear;
+    else annualCap = c==='row'? s.unreserved.typical : s.unreserved.perCountryCap;
+    const sliceVisas = catVisas * countryShare * fam/2;
+    const yrs = sliceVisas / annualCap;
+    if(cat==='infra' && c==='row' && catVisas < 400) return { yrs: 0.4, cap: annualCap, pipeline: sliceVisas };
+    return { yrs: Math.max(0.4, yrs), cap: annualCap, pipeline: sliceVisas };
+  }
+}
+function astryxFormatYears(y){
+  if(y < 0.7) return `${Math.round(y*12)} months`;
+  if(y < 2) return `${y.toFixed(1)} years`;
+  if(y >= 20) return `${Math.round(y)}+ years (multi-decade)`;
+  return `${y.toFixed(1)} years`;
+}
+function astryxFormatRange(y){
+  const lo = y * 0.75, hi = y * 1.35;
+  if(lo < 0.7) return `${Math.round(lo*12)} mo – ${astryxFormatYears(hi)}`;
+  return `${lo.toFixed(1)} – ${hi.toFixed(1)} years`;
+}
+function astryxEadEstimate({country, category, filingDate}){
+  const snap = ASTRYX_SNAP || ASTRYX_FALLBACK;
+  const catState = snap.visaBulletin[category]?.row || 'Current';
+  const isCurrent = catState === 'Current';
+  if(category==='unreserved' && (country==='india' || country==='china')) {
+    return { isCurrent:false, eadMonths: null, waitYears: astryxYearsFor({country, category:'unreserved', family:2.0, withOverflow:false}).yrs, note: `Unreserved ${country} FAD ${snap.visaBulletin.unreserved[country]} — must wait for filing date to become current` };
+  }
+  if(isCurrent){
+    return { isCurrent:true, eadMonths: 8, note: `Category Current — concurrent I-485/I-765 allowed. EAD typically 6–12 mo after filing (USCIS median ~8mo). Filing ${filingDate || 'today'} → EAD Q2–Q3 2027.` };
+  } else {
+    const y = astryxYearsFor({country, category, family:2.0, withOverflow:true}).yrs;
+    return { isCurrent:false, eadMonths:null, waitYears: y, note: `Not Current — EAD only after priority date becomes current for filing (~${astryxFormatYears(y)} queue)` };
+  }
+}
+function astryxGcEstimate({country, category, family, withOverflow, aos}){
+  const proc = (ASTRYX_SNAP||ASTRYX_FALLBACK).processing.i526e.medianMonths;
+  const consular = aos==='aos'? 8 : 13;
+  const y = astryxYearsFor({country, category, family, withOverflow});
+  const queueYears = y.yrs;
+  const procYears = proc/12;
+  const base = Math.max(queueYears, procYears) + consular/12;
+  return {
+    procMonths: proc,
+    consularMonths: consular,
+    queue: y,
+    totalLo: base*0.85,
+    total: base,
+    totalHi: base*1.25,
+    breakdown: `I-526E ${proc}mo + queue ${astryxFormatYears(queueYears)} + ${aos==='aos'?'I-485 ~8mo':'consular ~13mo DOS lag'}`
+  };
+}
+function astryxRenderEstimatorRoot(root){
+  const snap = ASTRYX_SNAP||ASTRYX_FALLBACK;
+  const html = `
+  <div class="astryx-head">
+    <div class="astryx-live" id="astryxLive"><i></i> Live: LucidText ${snap.updatedAt} · I-526E ${snap.processing.i526e.medianMonths}mo median</div>
+    <span class="astryx-chip">Model: <em>per-country 7.1% caps + ${snap.supply.annualTotal/1000}k/yr</em></span>
+  </div>
+  <div class="astryx-grid">
+    <div class="astryx-panel" id="astryxInputs">
+      <div class="astryx-panel-head"><h3>Your filing</h3><span class="sub">EAD = work permit · GC = conditional 2-yr</span></div>
+      <div class="astryx-panel-body">
+        <div class="astryx-row">
+          <div class="astryx-field"><label>Birth country</label>
+            <select id="axCountry"><option value="row">Rest of World (ROW)</option><option value="india">India</option><option value="china">China</option></select>
+          </div>
+          <div class="astryx-field"><label>Category</label>
+            <select id="axCat"><option value="rural">Rural ($800K)</option><option value="hua">High Unemployment — HUA</option><option value="infra">Infrastructure</option><option value="unreserved">Unreserved ($1.05M)</option></select>
+          </div>
+        </div>
+        <div class="astryx-row">
+          <div class="astryx-field"><label>Filing date</label><input type="date" id="axDate"></div>
+          <div class="astryx-field"><label>Path</label>
+            <select id="axPath"><option value="aos">AOS (I-485, in US)</option><option value="consular">Consular (abroad)</option></select>
+          </div>
+        </div>
+        <div class="astryx-toggle"><div><b>Unreserved overflow</b><br><span>Can set-aside investors claim Unreserved visas in PD order? (DOS yes, USCIS AOS not yet)</span></div>
+          <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="axOverflow" checked> allow</label>
+        </div>
+        <div class="astryx-slider">
+          <label style="font-size:11.5px;font-weight:650;letter-spacing:.03em;text-transform:uppercase;color:#354052">Family multiplier <span id="axFamVal" style="font-weight:800;color:var(--astryx-accent)">2.0×</span> <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#667085">(visas per petition after denials/family)</span></label>
+          <input type="range" id="axFam" min="1.6" max="2.8" step="0.1" value="2.0">
+          <div class="astryx-help">Lazicki assumes 2.0×. Move to 2.5–2.8 to see pessimistic (larger families / lower denials).</div>
+        </div>
+        <div class="astryx-help" style="padding:8px 10px;background:#f8fafc;border:1px solid #e8eaed">
+          <b>What “filing today” means:</b> You are at the end of ~19,780 petitions (Apr22–Jun26) + 30k pipeline visas. Earlier filers in same country/category are ahead; later ROW demand adds.
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn small" id="axCopy">Copy estimate</button>
+          <button class="btn small" id="axReset">Reset</button>
+          <span class="astryx-help" id="axSourceNote" style="align-self:center"></span>
+        </div>
+      </div>
+    </div>
+    <div class="astryx-results" id="astryxResults">
+      <div class="astryx-kpi" id="axEAD">
+        <div><h4>EAD — work permit (I-765)</h4><div class="num" id="axEADNum">—</div><div class="unit" id="axEADSub"></div><div class="astryx-help" id="axEADNote" style="margin-top:6px"></div></div>
+        <div class="side" id="axEADSide"></div>
+      </div>
+      <div class="astryx-kpi" id="axGC">
+        <div><h4>Conditional green card — I-526E → visa → GC</h4><div class="num" id="axGCNum">—</div><div class="unit" id="axGCSub"></div><div class="astryx-help" id="axGCNote" style="margin-top:6px"></div></div>
+        <div class="side" id="axGCSide"></div>
+      </div>
+      <div class="astryx-breakdown" id="axBreak">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#667085">Timeline breakdown</div>
+        <div class="astryx-bar"><span style="min-width:92px">I-526E</span><span class="seg" style="background:#e6f4f2"><i style="width:28%;background:#0e6b62"></i></span><span id="axBar1" style="min-width:92px;text-align:right"></span></div>
+        <div class="astryx-bar"><span style="min-width:92px">Visa queue</span><span class="seg" style="background:#fffbeb"><i id="axBar2i" style="background:#d97706"></i></span><span id="axBar2" style="min-width:92px;text-align:right"></span></div>
+        <div class="astryx-bar"><span style="min-width:92px">Consular/AOS</span><span class="seg" style="background:#f3f4f6"><i style="width:18%;background:#475569"></i></span><span id="axBar3" style="min-width:92px;text-align:right"></span></div>
+        <div class="astryx-legend"><span><i style="background:#0e6b62"></i> I-526E median</span><span><i style="background:#d97706"></i> visa queue (dominates if >1yr)</span><span><i style="background:#475569"></i> AOS/consular</span></div>
+        <div id="axRangeTable" style="margin-top:6px"></div>
+      </div>
+    </div>
+  </div>
+  <details class="astryx-provenance" style="margin-top:14px" open>
+    <summary>Sources & assumptions — what this projects</summary>
+    <div class="src" style="display:grid;gap:8px;margin-top:8px">
+      <div><b>Sources (fetched <span id="axFetchDate">—</span>):</b> <span id="axSrcList"></span></div>
+      <div><b>Pipeline:</b> <span id="axPipe"></span></div>
+      <div><b>Supply:</b> <span id="axSupply"></span></div>
+      <div><b>Processing:</b> <span id="axProc"></span></div>
+      <div><b>Caveats:</b> Excel Summary2/Infra tabs not OCR’d (formulas image-only), FY26 limits unpublished (DOS silence May 2025), 400/200 Infra inferred, 2.0× vs 2.8 family, ROW Unreserved 0/30/100% swings 4–38yr, “Current” = few qualified (~687/Q3) + slow DOS not no backlog, not FIFO. Model = Lazicki backlog logic (pipeline vs annual per-country caps). <a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener">EB5 Timing</a> · <a href="https://blog.lucidtext.com/2026/03/05/eb-5-set-aside-visa-backlog-and-outlook-update-as-of-march-2026-set-aside-backlog-size-unreserved-visa-availability-infrastructure-visa-bulletin-outlook/" target="_blank">Mar 5 Backlog</a> · <a href="https://blog.lucidtext.com/2026/03/06/infrastructure-revision/" target="_blank">Infra Rev</a> · <a href="https://blog.lucidtext.com/2026/09/09/sluggish-volumes-and-rising-denial-rates-continue-in-fy2026-q3-processing-data/" target="_blank">Q3 Data</a></div>
+      <div class="astryx-foot">Not investment/legal/tax advice. Confirm with counsel. Attribution: Suzanne Lazicki, Lucid Professional Writing, blog.lucidtext.com. Host updates via daily <code>data/lucid-snapshot.json</code> sync.</div>
+    </div>
+  </details>
+  `;
+  root.innerHTML = html;
+}
+function astryxUpdateProvenance(){
+  const snap = ASTRYX_SNAP||ASTRYX_FALLBACK;
+  const htmlList = (snap.sources||[]).map(s=> `<a href="${s.url}" target="_blank" rel="noopener">${s.name||s.url}</a>`).join(' · ');
+  const srcEl=document.getElementById('axSrcList'); if(srcEl) srcEl.innerHTML=htmlList||'fallback (offline)';
+  const f=document.getElementById('axFetchDate'); if(f) f.textContent = (snap.updatedAt||'') + (ASTRYX_LAST_FETCH?` · synced ${ASTRYX_LAST_FETCH.slice(0,10)}`:' · offline fallback');
+  const p=document.getElementById('axPipe'); if(p) p.textContent = `${snap.pipeline.totalPetitions.toLocaleString()} petitions Apr22–Jun26 (China ${(snap.pipeline.byCountry.chinaPct*100).toFixed(0)}% India ${(snap.pipeline.byCountry.indiaPct*100).toFixed(0)}% ROW ${(snap.pipeline.byCountry.rowPct*100).toFixed(0)}%) → ~${snap.pipeline.estimatedVisas.grandTotal.toLocaleString()} visas inc. 30k set-aside @ 2.0×`;
+  const s=document.getElementById('axSupply'); if(s) s.textContent = `10k/yr total — Rural ${snap.supply.rural.typical} (FY26 ${snap.supply.rural.fy26}) · HUA ${snap.supply.hua.typical} · Infra ${snap.supply.infra.firstYear}→${snap.supply.infra.typical} · Unreserved ${snap.supply.unreserved.typical} · per-country 7.1% when retrogressed`;
+  const pr=document.getElementById('axProc'); if(pr) pr.textContent = `I-526E ${snap.processing.i526e.medianMonths}mo median, ${snap.processing.i526e.pending.toLocaleString()} pending, ${(snap.processing.i526e.denialRate*100).toFixed(0)}% denial Q3 (${snap.processing.i526e.approvedQ3} approved) · I-956F 5.4mo · I-485 inventory Rural ~${snap.i485Inventory.ruralPending.toLocaleString()} HUA ~${snap.i485Inventory.huaPending.toLocaleString()} Infra ~${snap.i485Inventory.infraPending}`;
+  const live=document.getElementById('astryxLive'); if(live){
+    const isStale = !ASTRYX_LAST_FETCH;
+    live.className = 'astryx-live'+(isStale?' warn':'');
+    live.innerHTML = `<i></i> ${isStale?'Fallback':'Live'}: LucidText ${snap.updatedAt} · I-526E ${snap.processing.i526e.medianMonths}mo median ${isStale?'(offline — using embedded)':''}`;
+  }
+}
+function astryxRecalc(){
+  const country = document.getElementById('axCountry').value;
+  const category = document.getElementById('axCat').value;
+  const date = document.getElementById('axDate').value;
+  const aos = document.getElementById('axPath').value;
+  const fam = parseFloat(document.getElementById('axFam').value);
+  const withOverflow = document.getElementById('axOverflow').checked;
+  document.getElementById('axFamVal').textContent = fam.toFixed(1)+'×';
+  const ead = astryxEadEstimate({country, category, filingDate: date});
+  const eadNum=document.getElementById('axEADNum'), eadSub=document.getElementById('axEADSub'), eadNote=document.getElementById('axEADNote'), eadSide=document.getElementById('axEADSide');
+  if(ead.isCurrent){
+    eadNum.textContent = '6 – 12 months';
+    eadSub.textContent = 'after filing (concurrent I-485 → I-765)';
+    eadNote.textContent = ead.note;
+    eadSide.innerHTML = `<b style="color:#065f46">Current</b><div>File I-485 + I-765 together</div><div>med 8mo</div>`;
+    document.getElementById('axEAD').className='astryx-kpi';
+  } else {
+    const w = ead.waitYears || astryxYearsFor({country, category, family:fam, withOverflow}).yrs;
+    eadNum.textContent = astryxFormatYears(w) + ' + 8mo';
+    eadSub.textContent = 'until filing date current + EAD processing';
+    eadNote.textContent = ead.note;
+    eadSide.innerHTML = `<b style="color:#92400e">Not current</b><div>Wait for PDB</div><div>${astryxFormatYears(w)} queue</div>`;
+    document.getElementById('axEAD').className='astryx-kpi warn';
+  }
+  const gc = astryxGcEstimate({country, category, family:fam, withOverflow, aos});
+  const totalY = gc.total;
+  const gcNum=document.getElementById('axGCNum'), gcSub=document.getElementById('axGCSub'), gcNote=document.getElementById('axGCNote'), gcSide=document.getElementById('axGCSide');
+  gcNum.textContent = astryxFormatRange(totalY) + (totalY>=20? '':'  (base '+totalY.toFixed(1)+'y)');
+  gcSub.textContent = gc.breakdown;
+  let infraNote='';
+  if(category==='infra' && (country==='india'||country==='china') && !withOverflow){
+    infraNote=' · Infra-only: 0 to multi-decade depending on flurry sort — with overflow you are no worse than Rural/HUA (~7y).';
+  }
+  gcNote.textContent = `Queue ${astryxFormatYears(gc.queue.yrs)} @ ${gc.queue.cap}/yr caps (${Math.round(gc.queue.pipeline)} visas in your slice)${infraNote} · 3–5yr market claim vanishingly improbable per Mar 5.`;
+  gcSide.innerHTML = `<b>${astryxFormatYears(totalY)} total</b><div>base case @ ${fam.toFixed(1)}×</div><div>lo ${astryxFormatYears(gc.totalLo)} · hi ${astryxFormatYears(gc.totalHi)}</div>`;
+  document.getElementById('axGC').className = totalY>=7 ? 'astryx-kpi warn' : 'astryx-kpi';
+  document.getElementById('axBar1').textContent = gc.procMonths+' mo';
+  const bar2i=document.getElementById('axBar2i'); if(bar2i) bar2i.style.width = Math.min(78, gc.queue.yrs/Math.max(1,totalY)*100).toFixed(0)+'%';
+  document.getElementById('axBar2').textContent = astryxFormatYears(gc.queue.yrs);
+  document.getElementById('axBar3').textContent = gc.consularMonths+' mo';
+  const rt=document.getElementById('axRangeTable');
+  if(rt){
+    const row = (label, y, cap, pipe) => `<tr><td>${label}</td><td class=num>${astryxFormatYears(y)}</td><td>${cap}/yr</td><td>${Math.round(pipe).toLocaleString()} slice visas</td></tr>`;
+    const yNo = astryxYearsFor({country, category, family:fam, withOverflow:false});
+    const yYes = astryxYearsFor({country, category, family:fam, withOverflow:true});
+    rt.innerHTML = `<table class="astryx-table"><thead><tr><th>Scenario</th><th>Queue</th><th>Cap</th><th>Your slice</th></tr></thead><tbody>
+      ${row('Set-aside only', yNo.yrs, yNo.cap, yNo.pipeline)}
+      ${row('With Unreserved', yYes.yrs, yYes.cap, yYes.pipeline)}
+    </tbody></table><div class="astryx-help" style="margin-top:6px">Slice = category pipeline × country share × family/2. Set-aside only uses per-category per-country cap; With Unreserved uses ~700/yr total per-country (ROW ~5.2k). True wait = max(queue, I-526E) + AOS/consular.</div>`;
+  }
+  astryxUpdateProvenance();
+}
+async function astryxMount(){
+  const mount = document.getElementById('estimatorMount');
+  if(!mount) return;
+  await astryxLoadSnapshot();
+  astryxRenderEstimatorRoot(mount);
+  const d=document.getElementById('axDate'); if(d) d.valueAsDate = new Date();
+  ['axCountry','axCat','axPath','axOverflow'].forEach(id=>{
+    const e=document.getElementById(id); if(e) e.addEventListener('change', astryxRecalc);
+  });
+  const fam=document.getElementById('axFam'); if(fam) fam.addEventListener('input', astryxRecalc);
+  document.getElementById('axCopy')?.addEventListener('click', ()=>{
+    const country=document.getElementById('axCountry').value, cat=document.getElementById('axCat').value, famv=document.getElementById('axFam').value, withO=document.getElementById('axOverflow').checked;
+    const gcNum=document.getElementById('axGCNum').textContent, eadNum=document.getElementById('axEADNum').textContent;
+    const txt = `EB-5 estimate (${country} ${cat} @ ${famv}× ${withO?'with':'no'} overflow): EAD ${eadNum}, GC ${gcNum} — via blog.lucidtext.com model ${ASTRYX_SNAP?.updatedAt}`;
+    navigator.clipboard.writeText(txt); const b=document.getElementById('axCopy'); const t=b.textContent; b.textContent='Copied'; setTimeout(()=>b.textContent=t,1200);
+  });
+  document.getElementById('axReset')?.addEventListener('click', ()=>{
+    document.getElementById('axCountry').value='row'; document.getElementById('axCat').value='rural'; document.getElementById('axOverflow').checked=true; document.getElementById('axFam').value='2.0'; document.getElementById('axPath').value='aos'; astryxRecalc();
+  });
+  document.getElementById('axSourceNote').textContent = ASTRYX_LAST_FETCH? 'Live snapshot loaded' : 'Offline fallback — will sync when data/lucid-snapshot.json reachable';
+  astryxRecalc();
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  astryxMount();
+  loadStored();
+  renderAll();
+  initEditor();
+  // filters (projects section removed — guards keep estimator safe)
+  document.getElementById('q')?.addEventListener('input', renderCards);
+  document.getElementById('fState')?.addEventListener('change', renderCards);
+  document.getElementById('fVerify')?.addEventListener('change', renderCards);
+  document.getElementById('onlyUnknown')?.addEventListener('change', renderCards);
+  document.getElementById('q2')?.addEventListener('input', renderComparison);
+  document.getElementById('diffOnly')?.addEventListener('change', renderComparison);
+  document.getElementById('hlUnknown')?.addEventListener('change', renderComparison);
+  document.getElementById('btnPrint')?.addEventListener('click', ()=> window.print());
+  document.getElementById('btnExport')?.addEventListener('click', ()=>{
+    const payload = {projects:PROJECTS, categories:CATEGORIES, deploy:DEPLOY_ROWS, diligence:DILIGENCE, log:LOG, exportedAt:new Date().toISOString()};
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download="eb5research-export.json"; a.click(); URL.revokeObjectURL(url);
+  });
+  document.getElementById('btnHow')?.addEventListener('click', ()=> document.getElementById('update')?.scrollIntoView({behavior:"smooth"}));
+  document.getElementById('drawerClose')?.addEventListener('click', closeDrawer);
+  document.getElementById('drawerBg')?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e=>{ if(e.key==="Escape") closeDrawer(); });
+  // tabs active
+  const tabs=document.querySelectorAll('nav.tabs a');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(ent=>{
+      if(ent.isIntersecting){
+        tabs.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==="#"+ent.target.id));
+      }
+    });
+  },{rootMargin:"-40% 0px -55% 0px", threshold:0});
+  document.querySelectorAll('main section[id]').forEach(s=> obs.observe(s));
+  document.getElementById('btnAddLog')?.addEventListener('click', ()=>{
+    const title = prompt("Log title (e.g., 'Call with Pointe Vista — escrow trigger clarified')");
+    if(!title) return;
+    const body = prompt("What did you learn / verify?")||"";
+    const source = prompt("Source (doc name, call, URL)","")||"";
+    LOG.push({date:new Date().toISOString().slice(0,10), title, body, source});
+    saveLog(); renderTimeline();
+  });
+  document.getElementById('btnExportLog')?.addEventListener('click', ()=>{
+    const blob=new Blob([JSON.stringify(LOG,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download="eb5-research-log.json"; a.click(); URL.revokeObjectURL(url);
+  });
+  // try load external data/projects.json if hosted
+  fetch('data/projects.json').then(r=> r.ok? r.json(): null).then(j=>{
+    if(j && Array.isArray(j) && j.length){
+      // Only override if external has more recent data? For now offer to use it
+      console.log("External data/projects.json found with", j.length, "projects");
+      // don't auto-replace to avoid overwriting editor, but update if user confirms via console? We'll silently use if local PROJECTS is default and external differs?
+      // If external has different length, merge
+      if(j.length !== PROJECTS.length){
+        if(confirm("Found data/projects.json with "+j.length+" projects. Load it instead of embedded data?")){
+          PROJECTS.length=0; j.forEach(p=> PROJECTS.push(p)); renderAll();
+        }
+      }
+    }
+  }).catch(()=>{});
+});
+</script>
+</body>
+</html>

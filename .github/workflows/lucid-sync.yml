@@ -1,0 +1,35 @@
+name: Lucid Snapshot Sync
+
+on:
+  schedule:
+    - cron: "0 14 * * *" # daily 14:00 UTC (~07:00 PT)
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/fetch-lucid.js"
+      - "data/lucid-snapshot.json"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Sync LucidText sources
+        run: node scripts/fetch-lucid.js
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/lucid-snapshot.json; then
+            echo "No snapshot change"
+            exit 0
+          fi
+          git config user.name "eb5research-bot"
+          git config user.email "bot@eb5research.local"
+          git add data/lucid-snapshot.json
+          git commit -m "chore: sync LucidText snapshot $(date -u +%Y-%m-%d)"
+          git push
