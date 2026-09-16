@@ -1,59 +1,49 @@
-# Rural EB-5 Investment Search — Living Research Hub
+# EB-5 Wait-Time Estimator — EAD + Conditional Green Card
 
-A single-file static tracker that **continues the ChatGPT conversation** at:
+Live estimator for **how long EAD (work permit) and the conditional 2-yr green card take if you file today**, using pipeline vs per-country caps from [blog.lucidtext.com](https://blog.lucidtext.com) (Suzanne Lazicki, Lucid Professional Writing).
 
-https://chatgpt.com/share/6aaace7d-e408-83e9-9658-e2599e42d2ac — *Rural EB5 Investment Search*
+Live at: `https://vbgoz.github.io/EB5-Wait-Time-Estimator/` (after enabling Pages)
 
-Carries over the 5 projects, deployment-timing tracker, searchable comparison table, and diligence questions — rebuilt as a polished, hostable HTML file you can keep updating as you do more research.
+**Open locally:** double-click `index.html` — works offline via embedded fallback, no build step.
 
-**Open locally:** double-click `index.html` — it works offline, no server or build step.
+## What's inside (estimator-only)
 
-## What's inside
+* **Astryx estimator:** Birth country (ROW / India / China) × Category (Rural $800K / HUA / Infrastructure / Unreserved $1.05M) × Filing date × Path (AOS I-485 vs Consular) → **EAD** (Current → 6–12mo concurrent I-485+I-765, else queue+8mo) and **Conditional GC** (`max(I-526E 13.6mo, visa queue) + AOS/consular`) with low/base/high bands. Toggle **Unreserved overflow** to see both Lazicki futures (set-aside only vs with Unreserved). Family multiplier slider 1.6–2.8× (2.0× = Lazicki).
+* **Live model:** per-country 7.1% caps + 10k/yr total (Rural 3200 FY26 4000, HUA 1800, Infra 400→200, Unreserved 6800). Pipeline 19,780 petitions Apr22–Jun26 (China 46% India 27% ROW 27% → ~51k visas @2.0×). I-526E 13.6mo median, 11,192 pending, 24% denial Q3.
+* **Timeline breakdown:** I-526E bar (teal) + visa queue bar (amber, dominates if >1yr) + AOS/consular bar (slate) + scenario table (Set-aside only vs With Unreserved: queue / cap / your slice).
+* **Provenance:** fetched/synced dates, pipeline/supply/processing, caveats, links to EB-5 Timing, Mar 5 Backlog, Infra Rev, Q3 Data. Daily sync via `data/lucid-snapshot.json`.
 
-- **5 projects tracked:** Independent Living Cottages / CTP (NC), Texas Infrastructure Holdings (TX), Cormont at Deer Valley (UT), Simply Shenandoah (VA), Hard Rock Pointe Vista (OK) — all $800K, all Rural TEA, all I-956F approved, with per-project lien, escrow, jobs, and exit details.
-- **Sticky comparison table** with search, "differences only", and unknown-tint highlighting — the cells marked *Needs verification* are your next document requests.
-- **Deployment timeline matrix** — intentionally all “?” today. Fill it from each escrow agreement (release trigger, days-to-wire, pooled vs. direct, lien status at funding).
-- **Diligence checklist** (10 questions) with per-project checkboxes stored in `localStorage` + research log you can append to.
-- **Live JSON editor** — paste updated data, Apply → re-render, then Export/Download.
+No projects/comparison/deployment sections — estimator-only.
 
 ## Host it (60 seconds)
 
-**GitHub Pages (recommended for a living doc):**
-1. Create a new repo `eb5research` on GitHub.
-2. Upload `index.html`, `README.md`, and `data/projects.json` (drag-and-drop).
-3. Repo → Settings → Pages → Source: Deploy from branch → `main` / `/ (root)` → Save.
-4. Your URL: `https://<you>.github.io/eb5research/`
+**GitHub Pages (recommended — keeps daily sync):**
+1. Repo is `https://github.com/vbGoz/EB5-Wait-Time-Estimator` — already pushed (`main`).
+2. GitHub → repo → **Settings → Pages** → Source: **Deploy from branch** `main` `/ (root)` → Save. Wait 1–2 min.
+3. URL: `https://vbgoz.github.io/EB5-Wait-Time-Estimator/`
+4. Daily Lucid sync: `.github/workflows/lucid-sync.yml` runs `node scripts/fetch-lucid.js` at 14:00 UTC and commits `data/lucid-snapshot.json` if changed. Requires `workflow` scope (`gh auth refresh -s workflow` if push was rejected). Fallback embedded data keeps `file://` working offline.
 
-Every future edit is a git commit — history is your diligence trail. Alternatively drag `index.html` onto **Netlify** or **Cloudflare Pages** (no build command), or host on S3 — any static host works.
+**Alternatives:** Drag `index.html` + `css/` + `js/` + `data/` onto **Netlify Drop**, **Cloudflare Pages**, **Vercel**, or S3 — no build command. Or `python3 -m http.server 8000` → `http://localhost:8000`.
 
-## Keep updating it as you research
+## Keep it updated
 
-Three equivalent ways — pick whichever is easiest for that edit:
+The model is pipeline vs caps — no manual project edits needed. To refresh data:
 
-1. **Edit in place:** Open `index.html`, find `const PROJECTS = [` near the top of the script, edit fields, save, re-upload. Best for one-off fixes.
-2. **Use the on-page editor:** Scroll to *Update guide → Live JSON editor*, paste/adjust JSON, click **Apply → re-render**, then **Download updated HTML**. No code editor needed.
-3. **Keep `data/projects.json` as the source:** Edit that file in GitHub (web UI) and redeploy. The page will offer to load it on next visit if it differs from the embedded data.
+* **Automatic:** GitHub Action syncs `data/lucid-snapshot.json` daily. Or run locally: `node scripts/fetch-lucid.js` and commit.
+* **Manual tweak:** Edit `data/lucid-snapshot.json` (pipeline/supply/processing) or the inlined `ASTRYX_FALLBACK` in `index.html` (search `ASTRYX_FALLBACK`), then reload. The inline fallback mirrors the JSON so `file://` stays accurate when offline.
 
-**After each sponsor or counsel call:**
-- Update the relevant Comparison row and the Deployment timeline row.
-- Add a *Research log* entry (date + source).
-- Tick the diligence checklist items you confirmed in the docs.
-- Export JSON/HTML as a backup before switching devices (`localStorage` is per-browser).
-
-## Add a 6th project
-
-Add an object to `PROJECTS` (or `data/projects.json`) with the same keys (`id`, `name`, `short`, `location`, `state`, `rural`, `investment`, `i956f`, `structure`, `security`, `offering`, `term`, `escrow`, `filings`, `construction`, `jobs`, `refund`, `completion`, `fundingDelay`, `redeployment`, `exit`, `partial`, `deployment`, `question`, `source`, `sourceUrl`, `notes`). Tables and cards expand automatically — the header row adds a column.
+Check `https://blog.lucidtext.com/eb-5-timing/` and Visa Bulletin monthly — when Lazicki updates her Excel or DOS publishes new FADs, re-run the fetch.
 
 ## Files
 
-- `index.html` — the entire app, self-contained (CSS + JS inline), hostable anywhere and works via `file://`.
-- `data/projects.json` — same data as embedded in `index.html`, for easier diffing in git.
-- `README.md` — this file.
+* `index.html` — entire app, self-contained (CSS + Astryx inline JS), hostable anywhere via `file://`.
+* `css/astryx.css` — Astryx panel/KPI/bar/table tokens.
+* `js/astryx-estimator.js` — ES module version of estimator (inline classic in `index.html` for `file://`).
+* `data/lucid-snapshot.json` — live snapshot (auto-synced). `data/projects.json` — legacy (kept for reference, not used by estimator).
+* `scripts/fetch-lucid.js` — fetches RSS/Timing/Excel/USCIS, updates snapshot.
+* `tests/astryx-estimator.test.mjs` — 11 tests (`node tests/astryx-estimator.test.mjs`).
+* `.github/workflows/lucid-sync.yml` — daily sync workflow.
 
 ## Disclaimer
 
-Tracker is for diligence and comparison, not investment, legal, or tax advice. "Needs verification" means the current source (marketing page, brochure, or AI summary) does not establish the answer — confirm every *Yes / Approved / First lien* against the PPM, subscription agreement, escrow agreement, loan/guarantee, and intercreditor documents with your own counsel.
-
-## Continue the conversation here
-
-We picked up where ChatGPT left off — the next step flagged there was adding a **Funding Speed / Escrow** section tracking the exact contractual trigger for each project to release money, expected days to deployment, and whether any money sits in escrow after I-526E filing. That matrix is now the *Deployment timeline* section. Bring new findings here and this page stays the canonical record.
+Not investment, legal, or tax advice. Model is Lazicki backlog logic (pipeline vs annual per-country caps). Assumptions swing result (`2.0×` vs `2.8×` family, `400/200` Infra inferred, FY26 limits unpublished, ROW Unreserved 0/30/100% swings 4–38yr, "Current" = few qualified ~687/Q3 + slow DOS not no backlog, not FIFO). Confirm with counsel and official DOS/USCIS sources. Attribution: Suzanne Lazicki, Lucid Professional Writing, blog.lucidtext.com.
