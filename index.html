@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>EB-5 Empirical Visa Queue Forecaster — Policy & Timeline Analysis</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <script>
-    if(typeof tailwind !== 'undefined') tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['"EB Garamond"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-            display: ['"Cinzel"', 'serif'],
-          },
-          colors: {
-            paper: { DEFAULT: '#fbfaf7', dim: '#f4f2eb', card: '#ffffff', rule: '#e5e1d8', accent: '#ede9df' },
-            ink: { DEFAULT: '#191816', soft: '#4a4641', muted: '#78736a', faint: '#a8a298' },
-            oxford: { 900: '#141e2e', 800: '#1b2a41', },
-            terracotta: { 700: '#9d3f18', 600: '#b84b1f', 100: '#f9ece5', },
-            sage: { 900: '#183324', 800: '#234a34', 700: '#2e5f43', 100: '#eef5f1', 50: '#f5faf7', },
-            amberbronze: '#b45309'
-          }
-        }
-      }
-    }
-  </script>
+tailwind.config = { darkMode: "class", theme: { extend: { colors: {
+  "tertiary-container": "#3a0a00", "primary-fixed-dim": "#cac6c4", "primary": "#000000", "error": "#ba1a1a", "on-background": "#1b1c1a", "surface-dim": "#dbdad7", "on-tertiary": "#ffffff", "surface-bright": "#fbf9f6", "tertiary-fixed": "#ffdbd1", "surface-tint": "#605e5c", "on-secondary": "#ffffff", "on-tertiary-fixed": "#3a0a00", "secondary-fixed": "#b2f0d1", "on-surface": "#1b1c1a", "on-secondary-container": "#346f57", "on-tertiary-fixed-variant": "#842504", "on-primary-container": "#868382", "tertiary": "#000000", "on-tertiary-container": "#d6603c", "on-surface-variant": "#4a4640", "secondary-container": "#b2f0d1", "on-secondary-fixed-variant": "#10513a", "surface-container-low": "#f5f3f0", "on-primary-fixed": "#1c1b1a", "surface-container-lowest": "#ffffff", "primary-fixed": "#e6e2df", "surface-container-highest": "#e4e2df", "inverse-surface": "#30312f", "on-secondary-fixed": "#002115", "secondary-fixed-dim": "#96d3b6", "inverse-primary": "#cac6c4", "primary-container": "#1c1b1a", "surface-container-high": "#eae8e5", "outline": "#7b766f", "background": "#fbf9f6", "secondary": "#2e6951", "surface-variant": "#e4e2df", "on-error-container": "#93000a", "error-container": "#ffdad6", "inverse-on-surface": "#f2f0ed", "on-primary": "#ffffff", "surface-container": "#efeeeb", "on-error": "#ffffff", "surface": "#fbf9f6", "tertiary-fixed-dim": "#ffb59f", "outline-variant": "#ccc5bd", "on-primary-fixed-variant": "#484645",
+  paper: { DEFAULT: '#fbfaf7', dim: '#f4f2eb', card: '#ffffff', rule: '#e5e1d8', accent: '#ede9df' },
+  ink: { DEFAULT: '#191816', soft: '#4a4641', muted: '#78736a', faint: '#a8a298' },
+  oxford: { 900: '#141e2e', 800: '#1b2a41' },
+  terracotta: { 700: '#9d3f18', 600: '#b84b1f', 100: '#f9ece5' },
+  sage: { 900: '#183324', 800: '#234a34', 700: '#2e5f43', 100: '#eef5f1', 50: '#f5faf7' },
+  amberbronze: '#b45309'
+}, borderRadius: { DEFAULT:"0.125rem", lg:"0.25rem", xl:"0.5rem", full:"0.75rem" }, spacing: { "space-xs":"0.25rem","space-lg":"1.25rem","space-xl":"1.75rem","space-sm":"0.5rem",gutter:"0.75rem",margin:"1rem","space-md":"0.875rem" },
+fontFamily: { "headline-sm":["Newsreader"], "headline-md":["Newsreader"], "body-lg":["Inter"], "tabular-data-md":["JetBrains Mono"], "body-sm":["Inter"], "headline-lg-mobile":["Newsreader"], "tabular-data-lg":["JetBrains Mono"], "headline-lg":["Newsreader"], "label-sm":["JetBrains Mono"], "label-md":["JetBrains Mono"], "body-md":["Inter"], serif:['"EB Garamond"','Georgia','serif'], sans:['"Plus Jakarta Sans"','sans-serif'], mono:['"JetBrains Mono"', 'monospace'], display:['"Cinzel"','serif'] },
+fontSize: { "headline-sm":["20px",{"lineHeight":"26px","fontWeight":"500"}], "headline-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"500"}], "body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}], "tabular-data-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}], "body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}], "headline-lg-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}], "tabular-data-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.02em","fontWeight":"600"}], "headline-lg":["34px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}], "label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"500"}], "label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}], "body-md":["14px",{"lineHeight":"21px","fontWeight":"400"}] }
+} } };
+</script>
 <style>
-    .tabular-nums { font-variant-numeric: tabular-nums lining-nums; }
-    input[type=range] { -webkit-appearance: none; background: #e2ddd3; border-radius: 2px; height: 3px; }
-    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 14px; width: 14px; border-radius: 1px; background: #191816; cursor: pointer; border: 1px solid #191816; box-shadow: 0 1px 3px rgba(0,0,0,0.15); transition: transform 0.1s ease; }
-    input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
-    input[type=range]:focus { outline: none; }
-    @media print { body { background-color: white; color: black; } header button, header a { display: none !important; } aside { break-inside: avoid; } }
-  </style>
+.tabular-nums{font-variant-numeric:tabular-nums lining-nums;}
+input[type=range]{-webkit-appearance:none;background:#e2ddd3;border-radius:2px;height:3px;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:14px;width:14px;border-radius:1px;background:#191816;cursor:pointer;border:1px solid #191816;box-shadow:0 1px 3px rgba(0,0,0,0.15);transition:transform 0.1s ease;}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);}
+input[type=range]:focus{outline:none;}
+.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);} .pt-safe{padding-top:env(safe-area-inset-top,0px);}
+::-webkit-scrollbar{display:none;}
+@media print{body{background-color:white;color:black;} header button,header a{display:none !important;} aside{break-inside:avoid;}}
+</style>
 </head>
 <body class="bg-[#fbfaf7] text-ink font-sans antialiased selection:bg-[#191816] selection:text-paper min-h-screen flex flex-col">
+<!-- DESKTOP LAYOUT -->
+<div class="hidden lg:block">
+
 <header class="border-b border-[#e5e1d8] bg-[#fbfaf7]">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2 text-[11px] font-mono uppercase tracking-widest text-ink-muted border-b border-[#ece8df] flex flex-wrap justify-between items-center gap-2">
 <div class="flex items-center gap-3">
@@ -319,6 +318,222 @@
 <div class="shrink-0 font-mono text-[11px] text-ink-muted">© 2026 Empirical Immigration Forecaster</div>
 </div>
 </footer>
+
+</div>
+<!-- MOBILE LAYOUT -->
+<div class="lg:hidden">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex flex-col justify-between py-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">VOL. IX // ED. 4</span><span class="inline-flex items-center px-space-xs py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded">DATASET: Q3 FY2026</span></div><div class="flex items-center gap-space-sm"><a class="min-h-[44px] min-w-[44px] flex items-center justify-center font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors" data-path="methodology" href="#">Methodology</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-baseline justify-between"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate pr-space-sm">Bulletin Forecast</h1><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm text-secondary font-medium uppercase">INA § 203(b)(5)</span></div></div></div></header><main class="relative w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-12 space-y-space-lg">
+<section class="flex flex-col space-y-space-sm pt-space-xs">
+<div class="flex items-center space-x-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<span class="">MEMORANDUM</span>
+<span class="">•</span>
+<span class="">FORENSIC ACTUARIAL MODEL</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+      EB-5 Statutory Timeline &amp; Backlog Forecaster
+    </h2>
+<p class="font-headline-sm text-headline-sm italic text-on-surface-variant leading-snug">
+      An empirical equilibrium model projecting priority date progression, derivative visa exhaustion, and dual-track domestic status under 8 U.S.C. § 1153(b)(5).
+    </p>
+<div class="grid grid-cols-2 gap-gutter pt-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">USCIS Median I-526E</span>
+<span class="font-tabular-data-lg text-tabular-data-lg text-on-surface font-semibold tracking-tight">13.6 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">mos</span></span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Pipeline Backlog</span>
+<span class="font-tabular-data-lg text-tabular-data-lg text-on-surface font-semibold tracking-tight">19,780 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">petitions</span></span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded space-y-space-xs relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block font-medium">
+        Executive Analytical Thesis
+      </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">
+        The Two Realities of Post-RIA EB-5 Adjudications
+      </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Post-Reform and Integrity Act (RIA) investors face a bifurcated timeline: <strong class="text-on-surface font-medium">Milestone Alpha</strong> delivers virtually immediate domestic status rights within months, contrasting starkly with <strong class="text-on-surface font-medium">Milestone Omega</strong>, which subjects oversubscribed countries of chargeability to multi-year statutory preference visa bottlenecks.
+      </p>
+</div>
+</section>
+<section class="flex flex-col space-y-gutter">
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Dual Horizon Estimates</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium uppercase">Model Alpha/Omega</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded space-y-space-xs shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-space-xs py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded uppercase tracking-wider">
+          Milestone Alpha • INA § 245(m)
+        </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase">Domestic Bridge</span>
+</div>
+<div class="pt-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">EAD Work &amp; Advance Parole Combo Card</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unrestricted US work authorization &amp; international travel parole instrument.</p>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-secondary tabular-nums">6 – 12</span>
+<span class="font-body-md text-body-md font-medium text-secondary">months</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Benchmark</span>
+<span class="font-tabular-data-md text-tabular-data-md font-semibold text-on-surface">~8.0 mos</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-sm py-1.5 rounded flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Grants domestic residence bridge immune to priority wait</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded space-y-space-xs shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-space-xs py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded uppercase tracking-wider">
+          Milestone Omega • INA § 203(b)(5)
+        </span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase">Statutory Cap</span>
+</div>
+<div class="pt-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Issuance of Conditional Green Card</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Final action immigrant visa stamp or approved Form I-485 adjustment.</p>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-on-surface tabular-nums">9.5 – 17.0</span>
+<span class="font-body-md text-body-md font-medium text-on-surface-variant">years</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Base Estimate</span>
+<span class="font-tabular-data-md text-tabular-data-md font-semibold text-on-surface">12.0 yrs</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-sm py-1.5 rounded flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Family Multiplier: <span class="text-on-surface font-semibold">2.0x</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Spillover: <span class="text-secondary font-semibold">Consolidated</span></span>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low p-space-md rounded space-y-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Figure 1.0</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sequential Queue Architecture</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">T_0 = 2026.7</span>
+</div>
+<div class="relative pl-6 space-y-space-md">
+<div class="absolute left-2 top-2 bottom-2 w-0.5 bg-outline-variant"></div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">1</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Form I-526E Merits Review</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">13.6 mos</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Regional Center project compliance and individual lawful source of funds audit.</p>
+<div class="mt-2 p-2 bg-secondary-container rounded flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px]">flight_takeoff</span>
+<div class="flex-1">
+<span class="font-label-sm text-label-sm text-on-secondary-container font-medium block">Domestic Track (Concurrent Filing)</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed-variant">EAD &amp; AP Combo Issued @ ~8.0 months</span>
+</div>
+</div>
+</div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] text-on-surface font-label-sm">2</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Priority Retrogression Wait</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~10.8 yrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"The Great Wait." Petition approved; applicant awaits Worldwide/Country Cut-off progression in Visa Bulletin Chart A.</p>
+</div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">3</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Final Action Adjudication</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~0.7 yrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Form I-485 adjustment or Consular IV interview resulting in conditional green card issuance.</p>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-space-md rounded shadow-sm space-y-space-md" id="case-ledger">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Schedule A</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Filing Parameters &amp; Cohort</h3>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" id="reset-params" type="button">
+        Reset Case
+      </button>
+</div>
+<div class="space-y-space-sm">
+<div>
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Country of Chargeability</label>
+<div class="relative bg-surface-container-low rounded p-2 flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface font-medium" id="val-country">India (Oversubscribed)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">lock</span>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Statutory Category</label>
+<div class="relative bg-surface-container-low rounded p-2 flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface font-medium">Rural TEA (20% Reserved)</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase">INA § 203(b)(5)(B)(i)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div>
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Priority Date</label>
+<div class="bg-surface-container-low rounded p-2 font-tabular-data-md text-tabular-data-md text-on-surface">
+            09/16/2026
+          </div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Processing Stream</label>
+<div class="bg-surface-container-low rounded p-2 font-body-md text-body-md text-on-surface font-medium truncate">
+            Concurrent AOS
+          </div>
+</div>
+</div>
+<div class="pt-space-xs">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-2">Derivative Multiplier (Visas / Petition)</label>
+<div class="grid grid-cols-3 gap-gutter" id="multiplier-options">
+<button class="multiplier-btn py-2 px-1 bg-surface-container-low text-on-surface font-tabular-data-md text-tabular-data-md rounded text-center transition-colors" data-val="1.0" type="button">
+            1.0x <span class="font-label-sm text-label-sm block text-on-surface-variant font-normal">Solo</span>
+</button>
+<button class="multiplier-btn py-2 px-1 bg-primary text-on-primary font-tabular-data-md text-tabular-data-md rounded text-center transition-colors" data-val="2.0" type="button">
+            2.0x <span class="font-label-sm text-label-sm block text-on-primary-container font-normal">Base</span>
+</button>
+<button class="multiplier-btn py-2 px-1 bg-surface-container-low text-on-surface font-tabular-data-md text-tabular-data-md rounded text-center transition-colors" data-val="2.8" type="button">
+            2.8x <span class="font-label-sm text-label-sm block text-on-surface-variant font-normal">High</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs">
+<label class="flex items-center justify-between p-space-sm bg-surface-container-low rounded cursor-pointer select-none">
+<div class="pr-2">
+<span class="font-body-md text-body-md font-medium text-on-surface block">Consolidated Unreserved Spillover</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Apply unused Rest-of-World allocation under INA § 202(a)(5)</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary" id="spillover-toggle" type="checkbox">
+</label>
+</div>
+<div class="pt-space-sm">
+<button class="w-full bg-primary text-on-primary py-3 rounded font-body-md text-body-md font-medium flex items-center justify-center space-x-space-xs hover:bg-neutral-800 active:scale-[0.99] transition-all" id="recalc-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+<span class="">Re-compute Actuarial Queue</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
 <script>
 // === Astryx-Empirical Bridge — maps editorial UI to Lucid pipeline vs caps model ===
 const ASTRYX_FALLBACK = {
@@ -445,4 +660,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 window.__EB5_UPDATE_ALL__ = updateAll;
 window.__EB5_YEARS_FOR__ = yearsFor;
 </script>
-</body></html>
+
+</body>
+</html>
