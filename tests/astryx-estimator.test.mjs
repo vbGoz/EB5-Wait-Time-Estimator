@@ -82,14 +82,17 @@ test('GC: family multiplier increases wait', ()=>{
   assert.ok(high.total > low.total, `2.8x should be >2.0x: ${high.total} vs ${low.total}`);
 });
 
-test('projects section removed — guards prevent crash', ()=>{
+test('projects section removed — estimator-only design', ()=>{
   const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   assert.equal((html.match(/id="projects"/g)||[]).length, 0, 'index.html should not contain projects section');
   assert.equal((html.match(/href="#projects"/g)||[]).length, 0, 'nav should not link to projects');
-  // guards exist
-  assert.ok(html.includes("document.getElementById('q')?.addEventListener"), 'q guard missing');
-  assert.ok(html.includes("if(!grid) return"), 'renderCards guard missing');
-  assert.ok(html.includes("const qEl = document.getElementById('q')"), 'filteredProjects guard missing');
+  // estimator-only: new design has editorial estimator
+  assert.ok(html.includes('EB-5 Statutory Timeline &amp; Backlog Forecaster') || html.includes('EB-5 Statutory Timeline'), 'new editorial title missing');
+  assert.ok(html.includes('id="birth-country"'), 'birth-country select missing');
+  assert.ok(html.includes('id="visa-category"'), 'visa-category select missing');
+  assert.ok(html.includes('id="out-ead"'), 'out-ead result missing');
+  assert.ok(html.includes('id="out-gc"'), 'out-gc result missing');
+  assert.ok(html.includes('ASTRYX_FALLBACK') || html.includes('Lucid Model Series'), 'fallback/model missing');
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);
