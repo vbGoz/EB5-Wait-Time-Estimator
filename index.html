@@ -486,13 +486,13 @@ function updateAll(){
   document.getElementById('multiplier-display').textContent=Number(fam).toFixed(1)+'×';
   const snap=S||ASTRYX_FALLBACK;
   // Thesis header
-  document.getElementById('thesis-526e').innerHTML=`${snap.processing.i526e.medianMonths} <span class="text-xs font-sans text-ink-soft">mos</span>`;
-  document.getElementById('thesis-pipeline').textContent=snap.pipeline.totalPetitions.toLocaleString();
-  document.getElementById('header-quarter').textContent='Q3 FY2026';
-  document.getElementById('header-verified-text').textContent= LAST? `Synced ${LAST.slice(0,10)}` : 'Verified USCIS Inventory';
+  const _t526=document.getElementById('thesis-526e'); if(_t526) _t526.innerHTML=`${snap.processing.i526e.medianMonths} <span class="text-xs font-sans text-ink-soft">mos</span>`;
+  const _tPipe=document.getElementById('thesis-pipeline'); if(_tPipe) _tPipe.textContent=snap.pipeline.totalPetitions.toLocaleString();
+  const _hQ=document.getElementById('header-quarter'); if(_hQ) _hQ.textContent='Q3 FY2026';
+  const _hV=document.getElementById('header-verified-text'); if(_hV) _hV.textContent= LAST? `Synced ${LAST.slice(0,10)}` : 'Verified USCIS Inventory';
   // Priority positioning
   const visas=Math.round(snap.pipeline.totalPetitions*2);
-  document.getElementById('priority-positioning').innerHTML=`Filing now puts you behind <strong class="text-ink font-medium">${filing}</strong> stands behind <strong class="text-ink font-medium">~${snap.pipeline.totalPetitions.toLocaleString()} primary petitions</strong> representing approximately <strong class="text-ink font-medium">${visas.toLocaleString()} total visas</strong> in pipeline demand.`;
+  const _pp=document.getElementById('priority-positioning'); if(_pp) _pp.innerHTML=`Filing now puts you behind <strong class="text-ink font-medium">${filing}</strong> stands behind <strong class="text-ink font-medium">~${snap.pipeline.totalPetitions.toLocaleString()} primary petitions</strong> representing approximately <strong class="text-ink font-medium">${visas.toLocaleString()} total visas</strong> in pipeline demand.`;
   // EAD
   let eadCurrent=true; if(category==='unreserved' && (country==='india'||country==='china')) eadCurrent=false;
   const eadRangeEl=document.getElementById('out-ead');
@@ -513,42 +513,42 @@ function updateAll(){
   document.getElementById('out-gc-benchmark').innerHTML=`Base estimate: <strong class="text-paper">${total.toFixed(1)} yrs (@ ${fam.toFixed(1)}×)</strong>`;
   document.getElementById('out-gc-spillover').textContent= overflow? 'spillover on' : 'spillover off';
   // Axis
-  document.getElementById('axis-526e').textContent=`${procY.toFixed(1)} Yrs (${snap.processing.i526e.medianMonths} mos)`;
-  document.getElementById('axis-queue').textContent=`~${yUse.yrs.toFixed(1)} Yrs`;
-  document.getElementById('axis-final').textContent=`~${consY.toFixed(1)} Yrs (${path==='aos'?'8 mos':'13 mos'})`;
-  document.getElementById('axis-ead').textContent=`0.7 Years (~8 mos)`;
+  const _eaxis_526e=document.getElementById('axis-526e'); if(_eaxis_526e) _eaxis_526e.textContent=`${procY.toFixed(1)} Yrs (${snap.processing.i526e.medianMonths} mos)`;
+  const _eaxis_queue=document.getElementById('axis-queue'); if(_eaxis_queue) _eaxis_queue.textContent=`~${yUse.yrs.toFixed(1)} Yrs`;
+  const _eaxis_final=document.getElementById('axis-final'); if(_eaxis_final) _eaxis_final.textContent=`~${consY.toFixed(1)} Yrs (${path==='aos'?'8 mos':'13 mos'})`;
+  const _eaxis_ead=document.getElementById('axis-ead'); if(_eaxis_ead) _eaxis_ead.textContent=`0.7 Years (~8 mos)`;
   // Bars — scale: total 16y = 100% (FY26-2042). Each phase width = yrs/total*100
   const T=Math.max(14,total);
   const w526 = Math.max(6, Math.min(30, procY/T*100));
   const wQueue = Math.max(20, Math.min(80, yUse.yrs/T*100));
   const wFinal = Math.max(8, Math.min(25, consY/T*100));
   const wEad = Math.max(10, Math.min(25, 0.67/T*100));
-  document.getElementById('bar-526e').style.width=w526.toFixed(1)+'%';
-  document.getElementById('bar-queue').style.width=wQueue.toFixed(1)+'%';
-  document.getElementById('bar-final').style.width=wFinal.toFixed(1)+'%';
-  document.getElementById('bar-ead').style.width=wEad.toFixed(1)+'%';
+  const _ebar_526e=document.getElementById('bar-526e'); if(_ebar_526e) _ebar_526e.style.width=w526.toFixed(1)+'%';
+  const _ebar_queue=document.getElementById('bar-queue'); if(_ebar_queue) _ebar_queue.style.width=wQueue.toFixed(1)+'%';
+  const _ebar_final=document.getElementById('bar-final'); if(_ebar_final) _ebar_final.style.width=wFinal.toFixed(1)+'%';
+  const _ebar_ead=document.getElementById('bar-ead'); if(_ebar_ead) _ebar_ead.style.width=wEad.toFixed(1)+'%';
   // Spacers for queue/final alignment — queue starts after 526e
-  document.getElementById('spacer-queue-left').style.width=w526.toFixed(1)+'%';
-  document.getElementById('spacer-queue-right').style.width=Math.max(0,100-w526-wQueue).toFixed(1)+'%';
-  document.getElementById('spacer-final').style.width=(100-wFinal).toFixed(1)+'%';
+  const _espacer_queue_left=document.getElementById('spacer-queue-left'); if(_espacer_queue_left) _espacer_queue_left.style.width=w526.toFixed(1)+'%';
+  const _espacer_queue_right=document.getElementById('spacer-queue-right'); if(_espacer_queue_right) _espacer_queue_right.style.width=Math.max(0,100-w526-wQueue).toFixed(1)+'%';
+  const _espacer_final=document.getElementById('spacer-final'); if(_espacer_final) _espacer_final.style.width=(100-wFinal).toFixed(1)+'%';
   // Table — strict vs spill vs high
   const yHigh=yearsFor({country,category,family:2.8,withOverflow:!!overflow});
   const capStrict=yStrict.cap, pipeStrict=yStrict.pipe, capSpill=ySpill.cap, pipeSpill=ySpill.pipe, capHigh=yHigh.cap, pipeHigh=yHigh.pipe;
-  document.getElementById('tbl-strict-annual').textContent=capStrict.toLocaleString()+' / yr';
-  document.getElementById('tbl-strict-pipeline').textContent=Math.round(pipeStrict).toLocaleString();
-  document.getElementById('tbl-strict-queue').textContent=fmtYears(yStrict.yrs);
-  document.getElementById('tbl-strict-diff').textContent= overflow? 'Baseline Retrogression' : 'Active';
-  document.getElementById('tbl-spill-annual').textContent=capSpill.toLocaleString()+' / yr';
-  document.getElementById('tbl-spill-pipeline').textContent=Math.round(pipeSpill).toLocaleString();
-  document.getElementById('tbl-spill-queue').textContent=fmtYears(ySpill.yrs);
+  const _etbl_strict_annual=document.getElementById('tbl-strict-annual'); if(_etbl_strict_annual) _etbl_strict_annual.textContent=capStrict.toLocaleString()+' / yr';
+  const _etbl_strict_pipeline=document.getElementById('tbl-strict-pipeline'); if(_etbl_strict_pipeline) _etbl_strict_pipeline.textContent=Math.round(pipeStrict).toLocaleString();
+  const _etbl_strict_queue=document.getElementById('tbl-strict-queue'); if(_etbl_strict_queue) _etbl_strict_queue.textContent=fmtYears(yStrict.yrs);
+  const _etbl_strict_diff=document.getElementById('tbl-strict-diff'); if(_etbl_strict_diff) _etbl_strict_diff.textContent= overflow? 'Baseline Retrogression' : 'Active';
+  const _etbl_spill_annual=document.getElementById('tbl-spill-annual'); if(_etbl_spill_annual) _etbl_spill_annual.textContent=capSpill.toLocaleString()+' / yr';
+  const _etbl_spill_pipeline=document.getElementById('tbl-spill-pipeline'); if(_etbl_spill_pipeline) _etbl_spill_pipeline.textContent=Math.round(pipeSpill).toLocaleString();
+  const _etbl_spill_queue=document.getElementById('tbl-spill-queue'); if(_etbl_spill_queue) _etbl_spill_queue.textContent=fmtYears(ySpill.yrs);
   const diffSpill=(ySpill.yrs - yStrict.yrs);
-  document.getElementById('tbl-spill-diff').textContent= (diffSpill>=0? '+':'')+diffSpill.toFixed(1)+' yrs '+(diffSpill<0?'acceleration':'delay');
-  document.getElementById('tbl-high-annual').textContent=capHigh.toLocaleString()+' / yr';
-  document.getElementById('tbl-high-pipeline').textContent=Math.round(pipeHigh).toLocaleString();
-  document.getElementById('tbl-high-queue').textContent=fmtYears(yHigh.yrs);
-  document.getElementById('tbl-high-diff').textContent=(yHigh.yrs - ySpill.yrs).toFixed(1)+' yrs delay';
-  document.getElementById('table-cohort').textContent=`Cohort: ${country==='row'?'Rest of World':country.charAt(0).toUpperCase()+country.slice(1)} Chargeability • ${category==='rural'?'Rural Set-Aside':category==='hua'?'HUA Set-Aside':category==='infra'?'Infrastructure':'Unreserved'} • ${overflow?'Spillover':'Ringfence'}`;
-  document.getElementById('methodology-date').textContent=`Data Model Current as of ${snap.updatedAt} Adjudication Records • Synced ${LAST?LAST.slice(0,10):'offline'}`;
+  const _etbl_spill_diff=document.getElementById('tbl-spill-diff'); if(_etbl_spill_diff) _etbl_spill_diff.textContent= (diffSpill>=0? '+':'')+diffSpill.toFixed(1)+' yrs '+(diffSpill<0?'acceleration':'delay');
+  const _etbl_high_annual=document.getElementById('tbl-high-annual'); if(_etbl_high_annual) _etbl_high_annual.textContent=capHigh.toLocaleString()+' / yr';
+  const _etbl_high_pipeline=document.getElementById('tbl-high-pipeline'); if(_etbl_high_pipeline) _etbl_high_pipeline.textContent=Math.round(pipeHigh).toLocaleString();
+  const _etbl_high_queue=document.getElementById('tbl-high-queue'); if(_etbl_high_queue) _etbl_high_queue.textContent=fmtYears(yHigh.yrs);
+  const _etbl_high_diff=document.getElementById('tbl-high-diff'); if(_etbl_high_diff) _etbl_high_diff.textContent=(yHigh.yrs - ySpill.yrs).toFixed(1)+' yrs delay';
+  const _etable_cohort=document.getElementById('table-cohort'); if(_etable_cohort) _etable_cohort.textContent=`Cohort: ${country==='row'?'Rest of World':country.charAt(0).toUpperCase()+country.slice(1)} Chargeability • ${category==='rural'?'Rural Set-Aside':category==='hua'?'HUA Set-Aside':category==='infra'?'Infrastructure':'Unreserved'} • ${overflow?'Spillover':'Ringfence'}`;
+  const _emethodology_date=document.getElementById('methodology-date'); if(_emethodology_date) _emethodology_date.textContent=`Data Model Current as of ${snap.updatedAt} Adjudication Records • Synced ${LAST?LAST.slice(0,10):'offline'}`;
 }
 function setMultiplier(v){ const s=document.getElementById('multiplier-slider'); const d=document.getElementById('multiplier-display'); if(s&&d){ s.value=v; d.textContent=Number(v).toFixed(1)+'×'; updateAll(); } }
 document.addEventListener('DOMContentLoaded', async ()=>{

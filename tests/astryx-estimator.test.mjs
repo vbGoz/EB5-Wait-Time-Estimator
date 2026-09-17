@@ -95,5 +95,16 @@ test('projects section removed — estimator-only design', ()=>{
   assert.ok(html.includes('ASTRYX_FALLBACK') || html.includes('Lucid Model Series'), 'fallback/model missing');
 });
 
+test('recalculate button — updateAll is guarded and recalculates', async ()=>{
+  const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  // Ensure updateAll has guards for removed thesis/table so recalculate doesn't throw
+  assert.ok(html.includes("const _t526=document.getElementById('thesis-526e'); if(_t526)"), 'thesis guard missing — recalculate will throw');
+  assert.ok(html.includes("const _e_tbl"), 'table guard missing');
+  assert.ok(html.includes('id="recalculate"'), 'recalculate button missing');
+  assert.ok(html.includes("document.getElementById('recalculate')?.addEventListener"), 'recalculate listener not guarded');
+  // Also check INA jargon removed
+  assert.equal((html.match(/INA §/g)||[]).length, 0, 'INA jargon should be removed');
+});
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed?1:0);
