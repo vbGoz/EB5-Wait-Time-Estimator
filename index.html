@@ -65,27 +65,7 @@ input[type=range]:focus{outline:none;}
 </div>
 </header>
 <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
-<section class="border-y border-[#191816] py-5 bg-[#f5f3ec]">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-<div class="lg:col-span-8 space-y-1.5 border-b lg:border-b-0 lg:border-r border-[#ded8cb] lg:pr-6 pb-4 lg:pb-0">
-<span class="text-[10px] font-mono tracking-widest text-terracotta-700 uppercase font-semibold">Executive Analytical Thesis</span>
-<h2 class="text-xl sm:text-2xl font-serif text-ink font-medium tracking-tight">The Two Realities of Post-RIA EB-5 Adjudications</h2>
-<p class="text-xs sm:text-sm text-ink-soft leading-relaxed font-serif">Due to concurrent filing under INA § 245(m), an applicant residing in the U.S. attains domestic legal security (EAD work authorization and Advance Parole travel) within <strong class="text-ink font-semibold">months</strong>, even while the statutory priority queue for final permanent residency stretches into <strong class="text-ink font-semibold">years</strong>. Evaluating both dimensions independently prevents catastrophic capital misallocation.</p>
-</div>
-<div class="lg:col-span-4 grid grid-cols-2 gap-4 text-left">
-<div class="pl-2 border-l-2 border-[#191816]">
-<div class="text-[10px] font-mono uppercase tracking-wider text-ink-muted">USCIS Median Form I-526E</div>
-<div class="text-2xl font-serif font-medium text-ink tabular-nums mt-0.5" id="thesis-526e">13.6 <span class="text-xs font-sans text-ink-soft">mos</span></div>
-<div class="text-[11px] text-ink-muted">Projected adjudication speed</div>
-</div>
-<div class="pl-2 border-l-2 border-terracotta-700">
-<div class="text-[10px] font-mono uppercase tracking-wider text-terracotta-700">Filing Pipeline Backlog</div>
-<div class="text-2xl font-serif font-medium text-ink tabular-nums mt-0.5" id="thesis-pipeline">19,780</div>
-<div class="text-[11px] text-ink-muted">Petitions in queue (FY22–26)</div>
-</div>
-</div>
-</div>
-</section>
+<div class="flex justify-end pb-2"><a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener" class="text-[11px] font-mono underline decoration-ink-muted underline-offset-4 hover:text-ink">Details & source model → blog.lucidtext.com</a></div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 <aside class="lg:col-span-4 border border-[#e5e1d8] bg-white p-6 relative">
 <div class="flex items-baseline justify-between border-b border-[#191816] pb-3 mb-6">
@@ -203,114 +183,10 @@ input[type=range]:focus{outline:none;}
 </div>
 </div>
 </div>
-<div class="border border-[#e5e1d8] bg-white p-6 space-y-6">
-<div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-[#191816] pb-3 gap-2">
-<div>
-<span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted">Figure 1.0</span>
-<h3 class="text-base font-serif font-semibold text-ink">Sequential Queue Phases &amp; Calibrated Adjudication Axis</h3>
-</div>
-<div class="flex items-center gap-4 text-xs font-mono text-ink-muted">
-<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-ink"></span> USCIS Review</span>
-<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-amberbronze"></span> Priority Retrogression</span>
-<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-sage-700"></span> Final Issuance</span>
-</div>
-</div>
-<div class="space-y-6 pt-2">
-<div class="relative border-b border-[#cfc9bc] pb-2">
-<div class="flex justify-between text-[11px] font-mono text-ink-muted"><span>FY 2026</span><span>FY 2028</span><span>FY 2030</span><span>FY 2033</span><span>FY 2036</span><span>FY 2040+</span></div>
-<div class="flex justify-between text-ink-faint text-[9px] font-mono mt-0.5"><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span></div>
-</div>
-<div class="space-y-1.5">
-<div class="flex justify-between items-baseline text-xs font-mono"><span class="text-ink font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span>Domestic Track: EAD &amp; AP combo authorization</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-ead">0.7 Years (~8 mos)</span></div>
-<div class="relative w-full min-h-[28px] bg-[#f4f2eb] border border-[#e2ddd3] p-1 flex items-center overflow-visible">
-<div class="bg-sage-700 min-h-[22px] text-[10px] text-paper font-mono flex items-center px-2 font-medium whitespace-nowrap leading-none shrink-0" id="bar-ead" style="width: 14%; min-width: 88px;">EAD Granted</div>
-<div class="flex-1 min-w-0 h-full bg-sage-100 border-l border-sage-700 flex items-center px-2 text-[10px] font-mono text-sage-900 leading-none whitespace-nowrap overflow-visible" style="min-width: 0;">← Protected Domestic Work &amp; Travel Status Retained While Awaiting Priority Date →</div>
-</div>
-</div>
-<div class="space-y-3 pt-2">
-<div class="text-xs font-mono uppercase tracking-wider text-ink font-semibold border-t border-[#ece8df] pt-3">Statutory Immigrant Visa Track: Sequential Bottlenecks</div>
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-ink">Phase I: USCIS Form I-526E Adjudication (Merits &amp; TEA)</span><span class="text-ink font-semibold tabular-nums" id="axis-526e">1.1 Yrs (13.6 mos)</span></div>
-<div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible"><div class="bg-ink min-h-[20px] text-[10px] font-mono text-paper flex items-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-526e" style="width: 12%; min-width: 52px;">I-526E</div></div>
-</div>
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-amberbronze font-semibold">Phase II: Visa Availability &amp; Priority Backlog (The Great Wait)</span><span class="text-amberbronze font-semibold tabular-nums" id="axis-queue">~10.8 Yrs</span></div>
-<div class="w-full h-6 bg-[#f4f2eb] border border-[#e2ddd3] relative overflow-hidden flex">
-<div class="bg-transparent h-full" id="spacer-queue-left" style="width: 12%;"></div>
-<div class="bg-[#b45309] h-full flex items-center justify-center text-[10px] font-mono text-white tracking-wider px-2 font-medium" id="bar-queue" style="width: 72%;">Statutory Queue Absorption (Annual Quota Cap)</div>
-<div class="bg-transparent h-full" id="spacer-queue-right" style="width: 16%;"></div>
-</div>
-</div>
-<div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-sage-800">Phase III: Final Action Adjudication / Adjustment Stamp</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-final">~0.7 Yrs (8 mos)</span></div>
-<div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible">
-<div class="bg-transparent shrink-0" id="spacer-final" style="width: 84%;"></div>
-<div class="bg-sage-800 min-h-[20px] text-[10px] font-mono text-white flex items-center justify-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-final" style="width: 16%; min-width: 76px;">Green Card</div>
-</div>
-</div>
-</div>
-<div class="text-[11px] font-serif italic text-ink-muted border-t border-[#ece8df] pt-3 leading-relaxed" id="axis-observation"><span class="font-mono not-italic uppercase font-semibold text-[10px] text-ink">Analytical Observation:</span> Faster Form I-526E approvals by USCIS do not compress total wait times when the statutory visa pool is oversubscribed. Once I-526E is approved, the applicant enters Phase II where queue throughput is governed solely by INA § 201 annual numerical limitations.</div>
-</div>
-</div>
-<div class="border border-[#e5e1d8] bg-white">
-<div class="px-6 py-4 border-b border-[#191816] flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-<div><span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted">Table 2.1</span><h3 class="text-base font-serif font-semibold text-ink">Comparative Policy Modeling &amp; Spillover Dynamics</h3></div>
-<span class="text-xs font-mono text-ink-soft" id="table-cohort">Cohort: India Chargeability • Rural Set-Aside</span>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="border-b border-[#cfc9bc] bg-[#fbfaf7] text-[10px] font-mono uppercase tracking-wider text-ink-muted">
-<th class="py-3 px-6 font-semibold">Allocation Scenario</th>
-<th class="py-3 px-4 font-semibold text-right">Annual Visas</th>
-<th class="py-3 px-4 font-semibold text-right">Pipeline Demand</th>
-<th class="py-3 px-4 font-semibold text-right">Projected Queue</th>
-<th class="py-3 px-6 font-semibold text-right">Net Differential</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-[#ece8df] text-xs font-serif">
-<tr class="hover:bg-[#fbfaf7] transition">
-<td class="py-4 px-6"><div class="font-semibold text-ink font-sans text-xs">Strict Set-Aside Ringfence (No Spillover)</div><div class="text-[11px] text-ink-muted font-serif italic">Restricted solely to 20% rural statutory allocation (per-country cap enforced)</div></td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink" id="tbl-strict-annual">227 / yr</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink" id="tbl-strict-pipeline">4,050</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums font-semibold text-terracotta-700 text-sm" id="tbl-strict-queue">17.8 yrs</td>
-<td class="py-4 px-6 text-right font-mono text-[11px] text-terracotta-700" id="tbl-strict-diff">Baseline Retrogression</td>
-</tr>
-<tr class="bg-[#f7faf8] hover:bg-[#f2f7f4] transition">
-<td class="py-4 px-6"><div class="font-semibold text-ink font-sans text-xs flex items-center gap-2"><span>Consolidated Unreserved Spillover</span><span class="text-[9px] font-mono uppercase px-1.5 py-0.5 bg-sage-800 text-white font-medium">Standard Model</span></div><div class="text-[11px] text-ink-muted font-serif italic">Set-aside applicant absorbs residual unreserved pool visas by priority date</div></td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink font-medium" id="tbl-spill-annual">700 / yr</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink font-medium" id="tbl-spill-pipeline">8,370</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums font-semibold text-sage-900 text-sm" id="tbl-spill-queue">12.0 yrs</td>
-<td class="py-4 px-6 text-right font-mono text-[11px] font-semibold text-sage-800" id="tbl-spill-diff">-5.8 yrs acceleration</td>
-</tr>
-<tr class="hover:bg-[#fbfaf7] transition">
-<td class="py-4 px-6"><div class="font-semibold text-ink font-sans text-xs">Extended Derivative Demand (High Multiplier)</div><div class="text-[11px] text-ink-muted font-serif italic">Assuming 2.8× family multiplier and persistent rest-of-world surge</div></td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink" id="tbl-high-annual">700 / yr</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums text-ink" id="tbl-high-pipeline">11,700</td>
-<td class="py-4 px-4 text-right font-mono tabular-nums font-semibold text-ink text-sm" id="tbl-high-queue">16.7 yrs</td>
-<td class="py-4 px-6 text-right font-mono text-[11px] text-ink-soft" id="tbl-high-diff">+4.7 yrs delay</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p class="text-[11px] font-mono text-ink-muted pt-1"><a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener" class="underline decoration-ink-muted underline-offset-4 hover:text-ink">Details, queue model &amp; spillover table → blog.lucidtext.com/eb-5-timing/</a></p>
 </section>
 </div>
-<section class="border-t-2 border-[#191816] pt-8 space-y-6" id="methodology">
-<div class="flex flex-col md:flex-row md:items-baseline justify-between border-b border-[#e5e1d8] pb-3 gap-2">
-<div><span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted">Reference Documentation</span><h2 class="text-xl font-serif font-semibold text-ink">Notes on Statutory Architecture &amp; Methodology</h2></div>
-<div class="text-xs font-mono text-ink-muted">Primary Source: Suzanne Lazicki (Lucid Professional Writing) &amp; DOS Visa Office</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-serif leading-relaxed text-ink-soft">
-<div class="space-y-2 border-l border-[#ded8cb] pl-4"><h4 class="font-sans font-semibold text-ink uppercase tracking-wider text-[11px] font-mono">1. Statutory Set-Asides (RIA 2022)</h4><p>Under the EB-5 Reform and Integrity Act of 2022, Public Law 117-103, 32% of the worldwide ~10,000 EB-5 visa quota is reserved: 20% for Rural areas, 10% for High Unemployment Areas (HUA), and 2% for Infrastructure projects. If reserved visas are unissued at fiscal year-end, they roll into the reserved pool for the following fiscal year before spilling into the unreserved category.</p></div>
-<div class="space-y-2 border-l border-[#ded8cb] pl-4"><h4 class="font-sans font-semibold text-ink uppercase tracking-wider text-[11px] font-mono">2. The 7.1% Per-Country Ceiling</h4><p>INA § 202(a)(2) mandates that applicants from any single foreign state cannot exceed 7.1% of total family-sponsored and employment-based visas. In oversubscribed queues (such as India and China), this hard cap restricts annual reserved availability unless worldwide demand is completely cleared, precipitating retrogression in the monthly Department of State Visa Bulletin.</p></div>
-<div class="space-y-2 border-l border-[#ded8cb] pl-4"><h4 class="font-sans font-semibold text-ink uppercase tracking-wider text-[11px] font-mono">3. Concurrent Adjustment Mechanics</h4><p>The RIA enacted INA § 245(m), allowing investors and qualifying dependents lawfully present in the United States under nonimmigrant status (e.g. F-1, H-1B, L-1, O-1) to file Form I-485 concurrently with Form I-526E. This provides immediate status continuity, independent employment authorization, and advance parole travel eligibility regardless of priority date backlogs.</p></div>
-</div>
-<div class="p-4 bg-[#f4f2eb] border border-[#ded8cb] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-[11px] font-mono text-ink-muted">
-<div><strong class="text-ink font-medium">Statutory Corpus:</strong> 8 U.S.C. § 1153(b)(5); INA §§ 201, 202, 203, 245(m); 8 CFR § 204.6.</div>
-<div class="text-ink" id="methodology-date">Data Model Current as of September 2026 Adjudication Records</div>
-</div>
-</section>
+<p class="text-[11px] font-mono text-ink-muted pt-2 border-t border-[#e5e1d8] mt-2"><a href="https://blog.lucidtext.com/ina-203b/" target="_blank" rel="noopener" class="underline decoration-ink-muted underline-offset-4 hover:text-ink">Statute &amp; methodology → blog.lucidtext.com/ina-203b/</a> · <span id="methodology-date">Data as of September 2026</span></p>
 </main>
 <footer class="border-t border-[#e5e1d8] bg-[#f7f5ef] py-8 text-xs font-serif text-ink-muted mt-12">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -344,18 +220,6 @@ input[type=range]:focus{outline:none;}
 <span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Pipeline Backlog</span>
 <span class="font-tabular-data-lg text-tabular-data-lg text-on-surface font-semibold tracking-tight">19,780 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">petitions</span></span>
 </div>
-</div>
-<div class="bg-surface-container-low p-space-md rounded space-y-space-xs relative overflow-hidden">
-<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block font-medium">
-        Executive Analytical Thesis
-      </span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">
-        The Two Realities of Post-RIA EB-5 Adjudications
-      </h3>
-<p class="font-body-md text-body-md text-on-surface-variant">
-        Post-Reform and Integrity Act (RIA) investors face a bifurcated timeline: <strong class="text-on-surface font-medium">Milestone Alpha</strong> delivers virtually immediate domestic status rights within months, contrasting starkly with <strong class="text-on-surface font-medium">Milestone Omega</strong>, which subjects oversubscribed countries of chargeability to multi-year statutory preference visa bottlenecks.
-      </p>
 </div>
 </section>
 <section class="flex flex-col space-y-gutter">
@@ -415,49 +279,6 @@ input[type=range]:focus{outline:none;}
 <div class="bg-surface-container-low px-space-sm py-1.5 rounded flex items-center justify-between">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Family Multiplier: <span class="text-on-surface font-semibold">2.0x</span></span>
 <span class="font-label-sm text-label-sm text-on-surface-variant">Spillover: <span class="text-secondary font-semibold">Consolidated</span></span>
-</div>
-</div>
-</section>
-<section class="bg-surface-container-low p-space-md rounded space-y-space-md">
-<div class="flex items-baseline justify-between">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Figure 1.0</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Sequential Queue Architecture</h3>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">T_0 = 2026.7</span>
-</div>
-<div class="relative pl-6 space-y-space-md">
-<div class="absolute left-2 top-2 bottom-2 w-0.5 bg-outline-variant"></div>
-<div class="relative space-y-1">
-<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">1</div>
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Form I-526E Merits Review</span>
-<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">13.6 mos</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Regional Center project compliance and individual lawful source of funds audit.</p>
-<div class="mt-2 p-2 bg-secondary-container rounded flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-on-secondary-container text-[16px]">flight_takeoff</span>
-<div class="flex-1">
-<span class="font-label-sm text-label-sm text-on-secondary-container font-medium block">Domestic Track (Concurrent Filing)</span>
-<span class="font-body-sm text-body-sm text-on-secondary-fixed-variant">EAD &amp; AP Combo Issued @ ~8.0 months</span>
-</div>
-</div>
-</div>
-<div class="relative space-y-1">
-<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] text-on-surface font-label-sm">2</div>
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Priority Retrogression Wait</span>
-<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~10.8 yrs</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">"The Great Wait." Petition approved; applicant awaits Worldwide/Country Cut-off progression in Visa Bulletin Chart A.</p>
-</div>
-<div class="relative space-y-1">
-<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">3</div>
-<div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Final Action Adjudication</span>
-<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~0.7 yrs</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Form I-485 adjustment or Consular IV interview resulting in conditional green card issuance.</p>
 </div>
 </div>
 </section>
