@@ -41,9 +41,9 @@ input[type=range]:focus{outline:none;}
 <header class="border-b border-[#e5e1d8] bg-[#fbfaf7]">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2 text-[11px] font-mono uppercase tracking-widest text-ink-muted border-b border-[#ece8df] flex flex-wrap justify-between items-center gap-2">
 <div class="flex items-center gap-3">
-<span class="font-semibold text-ink">Lucid Model Series • No. IV</span>
+<span class="font-semibold text-ink">blog.lucidtext.com</span>
 <span class="text-ink-faint">/</span>
-<span>EB-5 Reform and Integrity Act (RIA) Empirical Review</span>
+<span>Live model</span>
 </div>
 <div class="flex items-center gap-4">
 <span>Quarterly Dataset: <span class="font-semibold text-ink" id="header-quarter">Q3 FY2026</span></span>
@@ -55,12 +55,12 @@ input[type=range]:focus{outline:none;}
 </div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row md:items-end justify-between gap-4">
 <div>
-<h1 class="text-2xl sm:text-3xl font-serif tracking-tight font-medium text-ink">EB-5 Statutory Timeline &amp; Backlog Forecaster</h1>
-<p class="text-xs sm:text-sm font-serif italic text-ink-soft mt-1 max-w-2xl leading-relaxed">An empirical equilibrium model projecting priority date progression, derivative visa exhaustion, and dual-track domestic status under 8 U.S.C. § 1153(b)(5).</p>
+<h1 class="text-2xl sm:text-3xl font-serif tracking-tight font-medium text-ink">EB-5 Wait Time Estimator</h1>
+<p class="text-xs sm:text-sm font-serif italic text-ink-soft mt-1 max-w-2xl leading-relaxed">Live estimate from USCIS inventory • Full model at blog.lucidtext.com</p>
 </div>
 <div class="flex items-center space-x-3 shrink-0">
-<a class="inline-flex items-center px-3 py-1.5 border border-[#cfc9bc] text-xs font-mono font-medium text-ink hover:bg-[#f2efe6] transition" href="#methodology">Methodology &amp; Law</a>
-<button class="inline-flex items-center px-3.5 py-1.5 bg-ink text-paper text-xs font-mono font-medium hover:bg-black transition shadow-sm" onclick="window.print()">Export Briefing PDF</button>
+<a class="inline-flex items-center px-3 py-1.5 border border-[#cfc9bc] text-xs font-mono font-medium text-ink hover:bg-[#f2efe6] transition" href="#methodology">Source</a>
+<button class="inline-flex items-center px-3.5 py-1.5 bg-ink text-paper text-xs font-mono font-medium hover:bg-black transition shadow-sm" onclick="window.print()">Print</button>
 </div>
 </div>
 </header>
@@ -77,7 +77,7 @@ input[type=range]:focus{outline:none;}
 </div>
 <form class="space-y-5" onsubmit="event.preventDefault();">
 <div>
-<label class="block text-xs font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="birth-country">1. Country of Chargeability (Nativity)</label>
+<label class="block text-xs font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="birth-country">Birth country</label>
 <select class="w-full text-xs font-serif text-ink bg-[#fcfbf9] border border-[#d5cfc1] rounded-none focus:ring-0 focus:border-ink py-2.5 pl-3 pr-8 transition" id="birth-country">
 <option selected>India (Subject to Retrogression)</option>
 <option>China (Mainland - Subject to Retrogression)</option>
@@ -85,10 +85,10 @@ input[type=range]:focus{outline:none;}
 <option>Vietnam</option>
 <option>Taiwan</option>
 </select>
-<p class="text-[11px] text-ink-muted mt-1 italic font-serif">Determines applicable 7.1% statutory per-country ceiling under INA § 202.</p>
+
 </div>
 <div>
-<label class="block text-xs font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="visa-category">2. Investment Category &amp; Set-Aside</label>
+<label class="block text-xs font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="visa-category">Category</label>
 <select class="w-full text-xs font-serif text-ink bg-[#fcfbf9] border border-[#d5cfc1] rounded-none focus:ring-0 focus:border-ink py-2.5 pl-3 pr-8 transition" id="visa-category">
 <option selected>Rural Targeted Employment Area (20% Reserved)</option>
 <option>High Unemployment Area - TEA (10% Reserved)</option>
@@ -98,11 +98,11 @@ input[type=range]:focus{outline:none;}
 </div>
 <div class="grid grid-cols-2 gap-3 pt-1">
 <div>
-<label class="block text-[11px] font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="filing-date">3. Priority Date</label>
+<label class="block text-[11px] font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="filing-date">Filing date</label>
 <input class="w-full text-xs font-mono text-ink bg-[#fcfbf9] border border-[#d5cfc1] rounded-none focus:ring-0 focus:border-ink py-2 px-2.5" id="filing-date" type="date" value="2026-09-16"/>
 </div>
 <div>
-<label class="block text-[11px] font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="filing-path">4. Processing Stream</label>
+<label class="block text-[11px] font-mono uppercase tracking-wider text-ink font-semibold mb-1" for="filing-path">Process</label>
 <select class="w-full text-xs font-serif text-ink bg-[#fcfbf9] border border-[#d5cfc1] rounded-none focus:ring-0 focus:border-ink py-2 px-2" id="filing-path">
 <option selected>Concurrent AOS (INA § 245)</option>
 <option>Consular Processing (NVC / DS-260)</option>
@@ -114,18 +114,18 @@ input[type=range]:focus{outline:none;}
 <div>
 <div class="flex items-center gap-1.5">
 <input checked class="h-3.5 w-3.5 text-ink border-gray-400 rounded-none focus:ring-0" id="overflow-toggle" type="checkbox"/>
-<label class="text-xs font-mono uppercase tracking-wider font-semibold text-ink cursor-pointer" for="overflow-toggle">Unreserved Spillover</label>
+<label class="text-xs font-mono uppercase tracking-wider font-semibold text-ink cursor-pointer" for="overflow-toggle">Allow spillover</label>
 </div>
-<p class="text-[11px] text-ink-muted leading-tight font-serif mt-1">Enables investor to absorb unused worldwide unreserved quota in order of Priority Date after reserved exhaustion.</p>
+<p class="text-[11px] text-ink-muted leading-tight font-serif mt-1">Use unreserved visas if your category is full.</p>
 </div>
-<span class="text-[9px] font-mono tracking-widest px-1.5 py-0.5 border border-[#cfc9bc] text-ink-soft uppercase shrink-0">Statutory</span>
+<span class="text-[9px] font-mono tracking-widest px-1.5 py-0.5 border border-[#cfc9bc] text-ink-soft uppercase shrink-0"></span>
 </div>
 </div>
 <div class="pt-2 border-t border-[#ece8df] space-y-2">
 <div class="flex items-baseline justify-between">
 <div>
-<label class="text-xs font-mono uppercase tracking-wider font-semibold text-ink block">5. Family Visa Multiplier</label>
-<span class="text-[11px] font-serif italic text-ink-muted">Visas per Form I-526E petition filed</span>
+<label class="text-xs font-mono uppercase tracking-wider font-semibold text-ink block">Family size</label>
+<span class="text-[11px] font-serif italic text-ink-muted">visas per petition</span>
 </div>
 <span class="font-mono text-sm font-semibold tabular-nums text-ink px-1.5 py-0.5 bg-[#f4f2eb] border border-[#dcd6c9]" id="multiplier-display">2.0×</span>
 </div>
@@ -138,7 +138,7 @@ input[type=range]:focus{outline:none;}
 </div>
 <div class="p-3 bg-[#fdfcf9] border-l-2 border-amberbronze text-[11px] text-ink-soft leading-relaxed font-serif">
 <span class="font-semibold text-ink font-mono uppercase tracking-wider text-[10px] block mb-0.5">Priority Positioning</span>
-<span id="priority-positioning">Under current filing velocity, an application submitted on this date stands behind <strong class="text-ink font-medium">~19,780 primary petitions</strong> representing approximately <strong class="text-ink font-medium">39,560 total visas</strong> in pipeline demand.</span>
+<span id="priority-positioning">Filing now puts you behind this date stands behind <strong class="text-ink font-medium">~19,780 primary petitions</strong> representing approximately <strong class="text-ink font-medium">39,560 total visas</strong> in pipeline demand.</span>
 </div>
 <div class="pt-2 flex gap-2">
 <button class="flex-1 py-2 text-xs font-mono uppercase tracking-wider border border-[#cfc9bc] text-ink hover:bg-[#f4f2eb] transition" type="button" id="reset-case">Reset Case</button>
@@ -151,35 +151,35 @@ input[type=range]:focus{outline:none;}
 <div class="border border-[#dcd6c9] bg-white p-5 flex flex-col justify-between">
 <div>
 <div class="flex items-baseline justify-between border-b border-[#ece8df] pb-2">
-<span class="text-[10px] font-mono uppercase tracking-widest text-sage-800 font-semibold flex items-center gap-1.5"><span class="w-2 h-2 rounded-none bg-sage-700"></span> Milestone Alpha • Domestic Status</span>
+<span class="text-[10px] font-mono uppercase tracking-widest text-sage-800 font-semibold flex items-center gap-1.5"><span class="w-2 h-2 rounded-none bg-sage-700"></span> EAD</span>
 <span class="text-[10px] font-mono text-ink-muted">INA § 245(m)</span>
 </div>
 <div class="mt-4">
-<h4 class="text-sm font-serif font-semibold text-ink">EAD Work &amp; Advance Parole Combo Card</h4>
+<h4 class="text-sm font-serif font-semibold text-ink">Work permit</h4>
 <div class="mt-2 text-3xl sm:text-4xl font-serif font-medium text-ink tabular-nums" id="out-ead">6 – 12 <span class="text-base font-sans font-normal text-ink-muted">months</span></div>
-<p class="text-xs text-ink-soft mt-2 font-serif leading-relaxed" id="out-ead-note">Concurrently filed Form I-765 and Form I-131 provide immediate unrestricted domestic employment rights and foreign travel permits while green card queue advances.</p>
+<p class="text-xs text-ink-soft mt-2 font-serif leading-relaxed" id="out-ead-note">Work & travel while you wait for green card.</p>
 </div>
 </div>
 <div class="mt-6 pt-3 border-t border-[#ece8df] flex justify-between items-center text-xs font-mono text-ink-muted">
-<span id="out-ead-benchmark">Benchmark: <strong class="text-ink font-semibold">~8.0 mos</strong></span>
-<span class="text-sage-800 font-medium" id="out-ead-status">Valid through Queue Wait</span>
+<span id="out-ead-benchmark">~ <strong class="text-ink font-semibold">~8.0 mos</strong></span>
+<span class="text-sage-800 font-medium" id="out-ead-status"></span>
 </div>
 </div>
 <div class="border border-[#191816] bg-[#1a1c23] text-paper p-5 flex flex-col justify-between shadow-sm relative overflow-hidden">
 <div>
 <div class="flex items-baseline justify-between border-b border-gray-700 pb-2">
-<span class="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-semibold flex items-center gap-1.5"><span class="w-2 h-2 rounded-none bg-amber-500"></span> Milestone Omega • Final Action</span>
+<span class="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-semibold flex items-center gap-1.5"><span class="w-2 h-2 rounded-none bg-amber-500"></span> Green card</span>
 <span class="text-[10px] font-mono text-gray-400">INA § 203(b)(5)</span>
 </div>
 <div class="mt-4">
-<h4 class="text-sm font-serif font-semibold text-paper">Issuance of Conditional Green Card</h4>
+<h4 class="text-sm font-serif font-semibold text-paper">Conditional green card</h4>
 <div class="mt-2 text-3xl sm:text-4xl font-serif font-medium text-paper tabular-nums" id="out-gc">9.5 – 17.0 <span class="text-base font-sans font-normal text-gray-400">years</span></div>
-<p class="text-xs text-gray-300 mt-2 font-serif leading-relaxed" id="out-gc-note">Cumulative duration until priority date reaches final action cutoff in Visa Bulletin, enabling adjustment or immigrant visa issuance.</p>
+<p class="text-xs text-gray-300 mt-2 font-serif leading-relaxed" id="out-gc-note">Time until green card is available.</p>
 </div>
 </div>
 <div class="mt-6 pt-3 border-t border-gray-800 flex justify-between items-center text-xs font-mono text-gray-400">
 <span id="out-gc-benchmark">Base estimate: <strong class="text-paper">12.0 yrs (@ 2.0×)</strong></span>
-<span class="text-amber-400" id="out-gc-spillover">Spillover included</span>
+<span class="text-amber-400" id="out-gc-spillover">spillover on</span>
 </div>
 </div>
 </div>
@@ -187,8 +187,8 @@ input[type=range]:focus{outline:none;}
 <div class="border border-[#e5e1d8] bg-white p-6 space-y-6">
 <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-[#191816] pb-3 gap-2">
 <div>
-<span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted">Figure 1.0</span>
-<h3 class="text-base font-serif font-semibold text-ink">Sequential Queue Phases &amp; Calibrated Adjudication Axis</h3>
+<span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted"></span>
+<h3 class="text-base font-serif font-semibold text-ink">Timeline</h3>
 </div>
 <div class="flex items-center gap-4 text-xs font-mono text-ink-muted">
 <span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-ink"></span> USCIS Review</span>
@@ -202,35 +202,35 @@ input[type=range]:focus{outline:none;}
 <div class="flex justify-between text-ink-faint text-[9px] font-mono mt-0.5"><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span></div>
 </div>
 <div class="space-y-1.5">
-<div class="flex justify-between items-baseline text-xs font-mono"><span class="text-ink font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span>Domestic Track: EAD &amp; AP combo authorization</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-ead">0.7 Years (~8 mos)</span></div>
+<div class="flex justify-between items-baseline text-xs font-mono"><span class="text-ink font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span>EAD</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-ead">0.7 Years (~8 mos)</span></div>
 <div class="relative w-full min-h-[28px] bg-[#f4f2eb] border border-[#e2ddd3] p-1 flex items-center overflow-visible">
 <div class="bg-sage-700 min-h-[22px] text-[10px] text-paper font-mono flex items-center px-2 font-medium whitespace-nowrap leading-none shrink-0" id="bar-ead" style="width: 14%; min-width: 88px;">EAD Granted</div>
 <div class="flex-1 min-w-0 h-full bg-sage-100 border-l border-sage-700 flex items-center px-2 text-[10px] font-mono text-sage-900 leading-none whitespace-nowrap overflow-visible" style="min-width: 0;">← Protected Domestic Work &amp; Travel Status Retained While Awaiting Priority Date →</div>
 </div>
 </div>
 <div class="space-y-3 pt-2">
-<div class="text-xs font-mono uppercase tracking-wider text-ink font-semibold border-t border-[#ece8df] pt-3">Statutory Immigrant Visa Track: Sequential Bottlenecks</div>
+<div class="text-xs font-mono uppercase tracking-wider text-ink font-semibold border-t border-[#ece8df] pt-3"> Immigrant Visa Track: Sequential Bottlenecks</div>
 <div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-ink">Phase I: USCIS Form I-526E Adjudication (Merits &amp; TEA)</span><span class="text-ink font-semibold tabular-nums" id="axis-526e">1.1 Yrs (13.6 mos)</span></div>
+<div class="flex justify-between text-xs font-mono"><span class="text-ink">I-526E review</span><span class="text-ink font-semibold tabular-nums" id="axis-526e">1.1 Yrs (13.6 mos)</span></div>
 <div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible"><div class="bg-ink min-h-[20px] text-[10px] font-mono text-paper flex items-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-526e" style="width: 12%; min-width: 52px;">I-526E</div></div>
 </div>
 <div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-amberbronze font-semibold">Phase II: Visa Availability &amp; Priority Backlog (The Great Wait)</span><span class="text-amberbronze font-semibold tabular-nums" id="axis-queue">~10.8 Yrs</span></div>
+<div class="flex justify-between text-xs font-mono"><span class="text-amberbronze font-semibold">Queue wait</span><span class="text-amberbronze font-semibold tabular-nums" id="axis-queue">~10.8 Yrs</span></div>
 <div class="w-full h-6 bg-[#f4f2eb] border border-[#e2ddd3] relative overflow-hidden flex">
 <div class="bg-transparent h-full" id="spacer-queue-left" style="width: 12%;"></div>
-<div class="bg-[#b45309] h-full flex items-center justify-center text-[10px] font-mono text-white tracking-wider px-2 font-medium" id="bar-queue" style="width: 72%;">Statutory Queue Absorption (Annual Quota Cap)</div>
+<div class="bg-[#b45309] h-full flex items-center justify-center text-[10px] font-mono text-white tracking-wider px-2 font-medium" id="bar-queue" style="width: 72%;"> Queue Absorption (Annual Quota Cap)</div>
 <div class="bg-transparent h-full" id="spacer-queue-right" style="width: 16%;"></div>
 </div>
 </div>
 <div class="space-y-1">
-<div class="flex justify-between text-xs font-mono"><span class="text-sage-800">Phase III: Final Action Adjudication / Adjustment Stamp</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-final">~0.7 Yrs (8 mos)</span></div>
+<div class="flex justify-between text-xs font-mono"><span class="text-sage-800">Final approval</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-final">~0.7 Yrs (8 mos)</span></div>
 <div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible">
 <div class="bg-transparent shrink-0" id="spacer-final" style="width: 84%;"></div>
 <div class="bg-sage-800 min-h-[20px] text-[10px] font-mono text-white flex items-center justify-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-final" style="width: 16%; min-width: 76px;">Green Card</div>
 </div>
 </div>
 </div>
-<div class="text-[11px] font-serif italic text-ink-muted border-t border-[#ece8df] pt-3 leading-relaxed" id="axis-observation"><span class="font-mono not-italic uppercase font-semibold text-[10px] text-ink">Analytical Observation:</span> Faster Form I-526E approvals by USCIS do not compress total wait times when the statutory visa pool is oversubscribed. Once I-526E is approved, the applicant enters Phase II where queue throughput is governed solely by INA § 201 annual numerical limitations.</div>
+<div class="text-[11px] font-serif italic text-ink-muted border-t border-[#ece8df] pt-3 leading-relaxed" id="axis-observation"><span class="font-mono not-italic uppercase font-semibold text-[10px] text-ink">Note: Faster I-526E does not shorten green card queue when visas are capped.</div>
 </div>
 </div>
 <p class="text-[11px] font-mono text-ink-muted pt-1"><a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener" class="underline decoration-ink-muted underline-offset-4 hover:text-ink">Details, queue model &amp; spillover table → blog.lucidtext.com/eb-5-timing/</a></p>
@@ -251,15 +251,15 @@ input[type=range]:focus{outline:none;}
 <header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin flex flex-col justify-between py-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">VOL. IX // ED. 4</span><span class="inline-flex items-center px-space-xs py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded">DATASET: Q3 FY2026</span></div><div class="flex items-center gap-space-sm"><a class="min-h-[44px] min-w-[44px] flex items-center justify-center font-label-sm text-label-sm uppercase tracking-wider text-on-surface hover:text-primary transition-colors" data-path="methodology" href="#">Methodology</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-baseline justify-between"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate pr-space-sm">Bulletin Forecast</h1><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm text-secondary font-medium uppercase">INA § 203(b)(5)</span></div></div></div></header><main class="relative w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-12 space-y-space-lg">
 <section class="flex flex-col space-y-space-sm pt-space-xs">
 <div class="flex items-center space-x-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
-<span class="">MEMORANDUM</span>
+<span class=""></span>
 <span class="">•</span>
-<span class="">FORENSIC ACTUARIAL MODEL</span>
+<span class=""></span>
 </div>
 <h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
-      EB-5 Statutory Timeline &amp; Backlog Forecaster
+      EB-5 Wait Time Estimator
     </h2>
 <p class="font-headline-sm text-headline-sm italic text-on-surface-variant leading-snug">
-      An empirical equilibrium model projecting priority date progression, derivative visa exhaustion, and dual-track domestic status under 8 U.S.C. § 1153(b)(5).
+      Live estimate from USCIS inventory • Full model at blog.lucidtext.com
     </p>
 <div class="grid grid-cols-2 gap-gutter pt-space-xs">
 <div class="bg-surface-container-low p-space-sm rounded">
@@ -274,19 +274,19 @@ input[type=range]:focus{outline:none;}
 </section>
 <section class="flex flex-col space-y-gutter">
 <div class="flex items-baseline justify-between">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Dual Horizon Estimates</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Estimates</span>
 <span class="font-label-sm text-label-sm text-secondary font-medium uppercase">Model Alpha/Omega</span>
 </div>
 <div class="bg-surface-container-lowest p-space-md rounded space-y-space-xs shadow-sm relative overflow-hidden">
 <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
 <div class="flex items-center justify-between">
 <span class="inline-flex items-center px-space-xs py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded uppercase tracking-wider">
-          Milestone Alpha • INA § 245(m)
+          EAD • INA § 245(m)
         </span>
 <span class="font-label-sm text-label-sm text-secondary font-semibold uppercase">Domestic Bridge</span>
 </div>
 <div class="pt-space-xs">
-<h4 class="font-headline-sm text-headline-sm text-on-surface">EAD Work &amp; Advance Parole Combo Card</h4>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Work permit</h4>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Unrestricted US work authorization &amp; international travel parole instrument.</p>
 </div>
 <div class="flex items-baseline justify-between pt-space-xs">
@@ -308,12 +308,12 @@ input[type=range]:focus{outline:none;}
 <div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
 <div class="flex items-center justify-between">
 <span class="inline-flex items-center px-space-xs py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded uppercase tracking-wider">
-          Milestone Omega • INA § 203(b)(5)
+          Green card • INA § 203(b)(5)
         </span>
-<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase">Statutory Cap</span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold uppercase"> Cap</span>
 </div>
 <div class="pt-space-xs">
-<h4 class="font-headline-sm text-headline-sm text-on-surface">Issuance of Conditional Green Card</h4>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Conditional green card</h4>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Final action immigrant visa stamp or approved Form I-485 adjustment.</p>
 </div>
 <div class="flex items-baseline justify-between pt-space-xs">
@@ -335,8 +335,8 @@ input[type=range]:focus{outline:none;}
 <section class="bg-surface-container-low p-space-md rounded space-y-space-md">
 <div class="flex items-baseline justify-between">
 <div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Figure 1.0</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Sequential Queue Architecture</h3>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Timeline</h3>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">T_0 = 2026.7</span>
 </div>
@@ -345,7 +345,7 @@ input[type=range]:focus{outline:none;}
 <div class="relative space-y-1">
 <div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">1</div>
 <div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Form I-526E Merits Review</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">I-526E review</span>
 <span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">13.6 mos</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Regional Center project compliance and individual lawful source of funds audit.</p>
@@ -360,7 +360,7 @@ input[type=range]:focus{outline:none;}
 <div class="relative space-y-1">
 <div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] text-on-surface font-label-sm">2</div>
 <div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Priority Retrogression Wait</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Queue wait</span>
 <span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~10.8 yrs</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant">"The Great Wait." Petition approved; applicant awaits Worldwide/Country Cut-off progression in Visa Bulletin Chart A.</p>
@@ -368,7 +368,7 @@ input[type=range]:focus{outline:none;}
 <div class="relative space-y-1">
 <div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">3</div>
 <div class="flex items-center justify-between">
-<span class="font-body-md text-body-md font-semibold text-on-surface">Final Action Adjudication</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Final approval</span>
 <span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~0.7 yrs</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Form I-485 adjustment or Consular IV interview resulting in conditional green card issuance.</p>
@@ -395,7 +395,7 @@ input[type=range]:focus{outline:none;}
 </div>
 </div>
 <div>
-<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Statutory Category</label>
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1"> Category</label>
 <div class="relative bg-surface-container-low rounded p-2 flex items-center justify-between">
 <span class="font-body-md text-body-md text-on-surface font-medium">Rural TEA (20% Reserved)</span>
 <span class="font-label-sm text-label-sm text-secondary font-semibold uppercase">INA § 203(b)(5)(B)(i)</span>
@@ -432,7 +432,7 @@ input[type=range]:focus{outline:none;}
 <div class="pt-space-xs">
 <label class="flex items-center justify-between p-space-sm bg-surface-container-low rounded cursor-pointer select-none">
 <div class="pr-2">
-<span class="font-body-md text-body-md font-medium text-on-surface block">Consolidated Unreserved Spillover</span>
+<span class="font-body-md text-body-md font-medium text-on-surface block">Consolidated Allow spillover</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant block">Apply unused Rest-of-World allocation under INA § 202(a)(5)</span>
 </div>
 <input checked="" class="w-4 h-4 rounded text-primary accent-primary" id="spillover-toggle" type="checkbox">
@@ -492,13 +492,13 @@ function updateAll(){
   document.getElementById('header-verified-text').textContent= LAST? `Synced ${LAST.slice(0,10)}` : 'Verified USCIS Inventory';
   // Priority positioning
   const visas=Math.round(snap.pipeline.totalPetitions*2);
-  document.getElementById('priority-positioning').innerHTML=`Under current filing velocity, an application submitted on <strong class="text-ink font-medium">${filing}</strong> stands behind <strong class="text-ink font-medium">~${snap.pipeline.totalPetitions.toLocaleString()} primary petitions</strong> representing approximately <strong class="text-ink font-medium">${visas.toLocaleString()} total visas</strong> in pipeline demand.`;
+  document.getElementById('priority-positioning').innerHTML=`Filing now puts you behind <strong class="text-ink font-medium">${filing}</strong> stands behind <strong class="text-ink font-medium">~${snap.pipeline.totalPetitions.toLocaleString()} primary petitions</strong> representing approximately <strong class="text-ink font-medium">${visas.toLocaleString()} total visas</strong> in pipeline demand.`;
   // EAD
   let eadCurrent=true; if(category==='unreserved' && (country==='india'||country==='china')) eadCurrent=false;
   const eadRangeEl=document.getElementById('out-ead');
   const eadNoteEl=document.getElementById('out-ead-note');
   const eadStatusEl=document.getElementById('out-ead-status');
-  if(eadCurrent){ eadRangeEl.innerHTML=`6 – 12 <span class="text-base font-sans font-normal text-ink-muted">months</span>`; eadNoteEl.textContent=`Concurrently filed Form I-765 and Form I-131 provide immediate unrestricted domestic employment rights. Filing ${filing} → EAD Q2–Q3 2027 (USCIS median ~8mo).`; eadStatusEl.textContent='Valid through Queue Wait'; eadStatusEl.className='text-sage-800 font-medium'; }
+  if(eadCurrent){ eadRangeEl.innerHTML=`6 – 12 <span class="text-base font-sans font-normal text-ink-muted">months</span>`; eadNoteEl.textContent=`Concurrently filed Form I-765 and Form I-131 provide immediate unrestricted domestic employment rights. Filing ${filing} → EAD Q2–Q3 2027 (USCIS median ~8mo).`; eadStatusEl.textContent=''; eadStatusEl.className='text-sage-800 font-medium'; }
   else { const y=yearsFor({country,category:'unreserved',family:fam,withOverflow:false}).yrs; eadRangeEl.innerHTML=`${fmtYears(y)} <span class="text-base font-sans font-normal text-ink-muted">+ 8mo</span>`; eadNoteEl.textContent=`Unreserved ${country} FAD ${snap.visaBulletin.unreserved[country]} — must wait for priority date to become current before I-485. `; eadStatusEl.textContent='Retrogressed — no concurrent filing'; eadStatusEl.className='text-terracotta-700 font-medium'; }
   // GC
   const ySpill=yearsFor({country,category,family:fam,withOverflow:true});
@@ -511,7 +511,7 @@ function updateAll(){
   document.getElementById('out-gc').innerHTML=`${totalLo.toFixed(1)} – ${totalHi.toFixed(1)} <span class="text-base font-sans font-normal text-gray-400">years</span>`;
   document.getElementById('out-gc-note').textContent=`Base ${total.toFixed(1)}y @ ${fam.toFixed(1)}× • I-526E 13.6mo + queue ${fmtYears(yUse.yrs)} + ${path==='aos'?'I-485 8mo':'Consular 13mo'} • ${yUse.yrs>=20?'Multi-decade queue':(yUse.yrs>7?'Extended backlog':'Moderate queue')}. 3–5yr market claim vanishes per Mar 5.`;
   document.getElementById('out-gc-benchmark').innerHTML=`Base estimate: <strong class="text-paper">${total.toFixed(1)} yrs (@ ${fam.toFixed(1)}×)</strong>`;
-  document.getElementById('out-gc-spillover').textContent= overflow? 'Spillover included' : 'Strict ringfence';
+  document.getElementById('out-gc-spillover').textContent= overflow? 'spillover on' : 'spillover off';
   // Axis
   document.getElementById('axis-526e').textContent=`${procY.toFixed(1)} Yrs (${snap.processing.i526e.medianMonths} mos)`;
   document.getElementById('axis-queue').textContent=`~${yUse.yrs.toFixed(1)} Yrs`;

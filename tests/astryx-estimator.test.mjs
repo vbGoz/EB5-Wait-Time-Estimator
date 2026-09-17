@@ -86,8 +86,8 @@ test('projects section removed — estimator-only design', ()=>{
   const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   assert.equal((html.match(/id="projects"/g)||[]).length, 0, 'index.html should not contain projects section');
   assert.equal((html.match(/href="#projects"/g)||[]).length, 0, 'nav should not link to projects');
-  // estimator-only: new design has editorial estimator
-  assert.ok(html.includes('EB-5 Statutory Timeline &amp; Backlog Forecaster') || html.includes('EB-5 Statutory Timeline'), 'new editorial title missing');
+  // estimator-only: new design has editorial estimator (simplified title)
+  assert.ok(html.includes('EB-5 Wait Time Estimator'), 'new editorial title missing');
   assert.ok(html.includes('id="birth-country"'), 'birth-country select missing');
   assert.ok(html.includes('id="visa-category"'), 'visa-category select missing');
   assert.ok(html.includes('id="out-ead"'), 'out-ead result missing');
