@@ -183,6 +183,56 @@ input[type=range]:focus{outline:none;}
 </div>
 </div>
 </div>
+
+<div class="border border-[#e5e1d8] bg-white p-6 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-[#191816] pb-3 gap-2">
+<div>
+<span class="text-[10px] font-mono uppercase tracking-widest text-ink-muted">Figure 1.0</span>
+<h3 class="text-base font-serif font-semibold text-ink">Sequential Queue Phases &amp; Calibrated Adjudication Axis</h3>
+</div>
+<div class="flex items-center gap-4 text-xs font-mono text-ink-muted">
+<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-ink"></span> USCIS Review</span>
+<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-amberbronze"></span> Priority Retrogression</span>
+<span class="inline-flex items-center gap-1.5"><span class="w-3 h-2 bg-sage-700"></span> Final Issuance</span>
+</div>
+</div>
+<div class="space-y-6 pt-2">
+<div class="relative border-b border-[#cfc9bc] pb-2">
+<div class="flex justify-between text-[11px] font-mono text-ink-muted"><span>FY 2026</span><span>FY 2028</span><span>FY 2030</span><span>FY 2033</span><span>FY 2036</span><span>FY 2040+</span></div>
+<div class="flex justify-between text-ink-faint text-[9px] font-mono mt-0.5"><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span><span>|</span></div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-baseline text-xs font-mono"><span class="text-ink font-semibold flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage-700"></span>Domestic Track: EAD &amp; AP combo authorization</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-ead">0.7 Years (~8 mos)</span></div>
+<div class="relative w-full min-h-[28px] bg-[#f4f2eb] border border-[#e2ddd3] p-1 flex items-center overflow-visible">
+<div class="bg-sage-700 min-h-[22px] text-[10px] text-paper font-mono flex items-center px-2 font-medium whitespace-nowrap leading-none shrink-0" id="bar-ead" style="width: 14%; min-width: 88px;">EAD Granted</div>
+<div class="flex-1 min-w-0 h-full bg-sage-100 border-l border-sage-700 flex items-center px-2 text-[10px] font-mono text-sage-900 leading-none whitespace-nowrap overflow-visible" style="min-width: 0;">← Protected Domestic Work &amp; Travel Status Retained While Awaiting Priority Date →</div>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="text-xs font-mono uppercase tracking-wider text-ink font-semibold border-t border-[#ece8df] pt-3">Statutory Immigrant Visa Track: Sequential Bottlenecks</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-mono"><span class="text-ink">Phase I: USCIS Form I-526E Adjudication (Merits &amp; TEA)</span><span class="text-ink font-semibold tabular-nums" id="axis-526e">1.1 Yrs (13.6 mos)</span></div>
+<div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible"><div class="bg-ink min-h-[20px] text-[10px] font-mono text-paper flex items-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-526e" style="width: 12%; min-width: 52px;">I-526E</div></div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-mono"><span class="text-amberbronze font-semibold">Phase II: Visa Availability &amp; Priority Backlog (The Great Wait)</span><span class="text-amberbronze font-semibold tabular-nums" id="axis-queue">~10.8 Yrs</span></div>
+<div class="w-full h-6 bg-[#f4f2eb] border border-[#e2ddd3] relative overflow-hidden flex">
+<div class="bg-transparent h-full" id="spacer-queue-left" style="width: 12%;"></div>
+<div class="bg-[#b45309] h-full flex items-center justify-center text-[10px] font-mono text-white tracking-wider px-2 font-medium" id="bar-queue" style="width: 72%;">Statutory Queue Absorption (Annual Quota Cap)</div>
+<div class="bg-transparent h-full" id="spacer-queue-right" style="width: 16%;"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-mono"><span class="text-sage-800">Phase III: Final Action Adjudication / Adjustment Stamp</span><span class="text-sage-800 font-semibold tabular-nums" id="axis-final">~0.7 Yrs (8 mos)</span></div>
+<div class="w-full min-h-[22px] bg-[#f4f2eb] border border-[#e2ddd3] flex items-center overflow-visible">
+<div class="bg-transparent shrink-0" id="spacer-final" style="width: 84%;"></div>
+<div class="bg-sage-800 min-h-[20px] text-[10px] font-mono text-white flex items-center justify-center px-2 whitespace-nowrap leading-none shrink-0" id="bar-final" style="width: 16%; min-width: 76px;">Green Card</div>
+</div>
+</div>
+</div>
+<div class="text-[11px] font-serif italic text-ink-muted border-t border-[#ece8df] pt-3 leading-relaxed" id="axis-observation"><span class="font-mono not-italic uppercase font-semibold text-[10px] text-ink">Analytical Observation:</span> Faster Form I-526E approvals by USCIS do not compress total wait times when the statutory visa pool is oversubscribed. Once I-526E is approved, the applicant enters Phase II where queue throughput is governed solely by INA § 201 annual numerical limitations.</div>
+</div>
+</div>
 <p class="text-[11px] font-mono text-ink-muted pt-1"><a href="https://blog.lucidtext.com/eb-5-timing/" target="_blank" rel="noopener" class="underline decoration-ink-muted underline-offset-4 hover:text-ink">Details, queue model &amp; spillover table → blog.lucidtext.com/eb-5-timing/</a></p>
 </section>
 </div>
@@ -282,6 +332,50 @@ input[type=range]:focus{outline:none;}
 </div>
 </div>
 </section>
+<section class="bg-surface-container-low p-space-md rounded space-y-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-medium">Figure 1.0</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sequential Queue Architecture</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">T_0 = 2026.7</span>
+</div>
+<div class="relative pl-6 space-y-space-md">
+<div class="absolute left-2 top-2 bottom-2 w-0.5 bg-outline-variant"></div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">1</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Form I-526E Merits Review</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">13.6 mos</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Regional Center project compliance and individual lawful source of funds audit.</p>
+<div class="mt-2 p-2 bg-secondary-container rounded flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px]">flight_takeoff</span>
+<div class="flex-1">
+<span class="font-label-sm text-label-sm text-on-secondary-container font-medium block">Domestic Track (Concurrent Filing)</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed-variant">EAD &amp; AP Combo Issued @ ~8.0 months</span>
+</div>
+</div>
+</div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] text-on-surface font-label-sm">2</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Priority Retrogression Wait</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~10.8 yrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"The Great Wait." Petition approved; applicant awaits Worldwide/Country Cut-off progression in Visa Bulletin Chart A.</p>
+</div>
+<div class="relative space-y-1">
+<div class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-label-sm">3</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Final Action Adjudication</span>
+<span class="font-tabular-data-md text-tabular-data-md text-on-surface font-medium">~0.7 yrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Form I-485 adjustment or Consular IV interview resulting in conditional green card issuance.</p>
+</div>
+</div>
+</section>
+
 <section class="bg-surface-container-lowest p-space-md rounded shadow-sm space-y-space-md" id="case-ledger">
 <div class="flex items-baseline justify-between">
 <div>
