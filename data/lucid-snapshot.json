@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-09-25",
-  "generatedAt": "2026-09-25T18:15:31.271Z",
+  "updatedAt": "2026-09-26",
+  "generatedAt": "2026-09-26T17:38:08.247Z",
   "sources": [
     {
       "name": "EB-5 Timing page",
       "url": "https://blog.lucidtext.com/eb-5-timing/",
-      "fetched": "2026-09-25",
+      "fetched": "2026-09-26",
       "note": "Links to EB5-Backlog-Analysis.xlsx (Dropbox)",
       "lastStatus": "200 OK"
     },
     {
       "name": "March 5 2026 Set-Aside Backlog Update",
       "url": "https://blog.lucidtext.com/2026/03/05/eb-5-set-aside-visa-backlog-and-outlook-update-as-of-march-2026-set-aside-backlog-size-unreserved-visa-availability-infrastructure-visa-bulletin-outlook/",
-      "fetched": "2026-09-25",
+      "fetched": "2026-09-26",
       "lastStatus": "200 OK"
     },
     {
       "name": "March 6 2026 Infrastructure Revision",
       "url": "https://blog.lucidtext.com/2026/03/06/infrastructure-revision/",
-      "fetched": "2026-09-25",
+      "fetched": "2026-09-26",
       "lastStatus": "200 OK"
     },
     {
       "name": "Sept 9 2026 FY26 Q3 Processing Data",
       "url": "https://blog.lucidtext.com/2026/09/09/sluggish-volumes-and-rising-denial-rates-continue-in-fy2026-q3-processing-data/",
-      "fetched": "2026-09-25",
+      "fetched": "2026-09-26",
       "lastStatus": "200 OK"
     },
     {
       "name": "Oct 2025 I-485 report + Dec 2025 Visa Bulletin",
       "url": "https://blog.lucidtext.com/2025/11/19/october-2025-i-485-report-and-december-2025-visa-bulletin/",
-      "fetched": "2026-09-25",
+      "fetched": "2026-09-26",
       "lastStatus": "200 OK"
     }
   ],
@@ -198,7 +198,7 @@
   "lastVerified": "2026-09-16",
   "attribution": "Data synthesis from Suzanne Lazicki, Lucid Professional Writing, blog.lucidtext.com. Not legal advice. Confirm with counsel and official DOS/USCIS sources.",
   "lastSync": {
-    "date": "2026-09-25",
+    "date": "2026-09-26",
     "checks": [
       {
         "label": "RSS feed",
